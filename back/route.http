@@ -1,0 +1,11 @@
+POST http://localhost:3000/projet/arbre HTTP/1.1
+content-type: application/json 
+
+ {"naissance": "08.10.1961",
+  "nom": "GUERIN",
+  "prenom": "Thierry",
+  "id":"001"
+  }
+######
+
+GET http://localhost:3000/projet/

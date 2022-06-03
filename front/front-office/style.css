@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*/////// CSS header //////*/
+
+header{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 12vh;
+    align-items: center;
+    background-image: url();
+}
+
+h1{
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    font-size: 2.3rem;
+}
+
+a{
+    grid-column: 3;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3rem;
+    text-decoration: none;
+    color: black;
+}
+
+/*////// CSS barre de recherche //////*/
+
+.searchBar{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2% 0 4% 0;
+}
+
+.nom, .prenom, .ville{
+    height: 2rem;
+    width: 20rem;
+}
+
+/*////// CSS GET //////*/
+
+.fiches{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 3%
+}
+
+.sup, .edit{
+    display: none;
+}
+
+#description{
+    white-space: pre-wrap;
+}
+
+.info{
+    border: 1px black solid;
+    border-radius: 25px 10px ;
+    width: 250px;
+    padding: 2%;
+}
+
+/*////// css pagination ///////*/
+
+.pgn{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 5%;
+    padding: 1%;
+    background-color: bisque;
+}
