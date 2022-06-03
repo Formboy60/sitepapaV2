@@ -12,7 +12,7 @@ header{
     grid-template-columns: repeat(3, 1fr);
     height: 12vh;
     align-items: center;
-    background-image: url();
+    background-image: url(../asset/Bandeau\ 10.jpg);   
 }
 
 h1{
@@ -20,6 +20,9 @@ h1{
     display: flex;
     justify-content: center;
     font-size: 2.3rem;
+    color: rgb(255, 254, 254);
+    backdrop-filter: blur(7px);
+    text-shadow: 1px 1px 0 black;
 }
 
 a{
@@ -31,18 +34,26 @@ a{
     color: black;
 }
 
+/* main */
+
+body{
+    background-color: #AC947A;
+}
+
+
 /*////// CSS barre de recherche //////*/
 
 .searchBar{
     display: flex;
     justify-content: center;
     gap: 3rem;
-    margin: 2% 0 4% 0;
+    padding: 2% 0 4% 0;
 }
 
 .nom, .prenom, .ville{
     height: 2rem;
     width: 20rem;
+    border-radius: 5px;
 }
 
 /*////// CSS GET //////*/
@@ -51,7 +62,7 @@ a{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-    gap: 3%
+    gap: 3%;
 }
 
 .sup, .edit{
@@ -65,9 +76,76 @@ a{
 .info{
     border: 1px black solid;
     border-radius: 25px 10px ;
-    width: 250px;
+    width: 350px;
     padding: 2%;
+    background-color:#816b54 ;
 }
+
+.id{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2% 0 1%;
+}
+
+.minImg{
+    max-width: 150px;
+    max-height: 125px;
+}
+
+.detail, .retour, .retourH{
+    width: 98%;
+    border-radius: 1508px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/*////// CSS get by ID ///////*/
+
+.perso{
+    display: flex;
+    justify-content: center;
+}
+
+.infoBig{
+    width: 80%;
+    padding: 0 2% 2% 2%;
+    border: 1px black solid;
+    border-radius: 50px 5px ;
+    background-color:#816b54
+}
+
+.haut{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.textBig{
+    /* padding: 75px 0 0 75px; */
+    height: 150px;
+    font-size: 1.3rem;
+}
+
+
+.bigImg{   
+    width: 250px;
+}
+
+.bas{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    font-size: 1.1rem;
+}
+
+.retour{
+    margin-top: 2%;
+}
+
+.retourH{
+    margin: 1% 0 2% 0;
+}
+
 
 /*////// css pagination ///////*/
 
@@ -77,5 +155,9 @@ a{
     gap: 15px;
     margin-top: 5%;
     padding: 1%;
-    background-color: bisque;
+}
+
+.numPage{
+    width: 50px;
+    height: 50px;
 }

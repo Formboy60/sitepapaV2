@@ -26,12 +26,13 @@ document.querySelector("main").addEventListener("click", (e) => {
   } else if (e.target.className === "edit") {
     //////////// put front /////////////
 
-    console.log(e.target.parentNode.childNodes[3].childNodes[9].textContent);
+    console.log(e.target.parentNode.childNodes[1].childNodes[1].childNodes[9].textContent);
     const newArticle = {
-      nom: e.target.parentNode.childNodes[3].childNodes[3].textContent,
-      prenom: e.target.parentNode.childNodes[3].childNodes[5].textContent,
-      naissance: e.target.parentNode.childNodes[3].childNodes[7].textContent,
-      id: e.target.parentNode.childNodes[3].childNodes[1].textContent,
+      nom: e.target.parentNode.childNodes[1].childNodes[1].childNodes[3].textContent,
+      prenom: e.target.parentNode.childNodes[1].childNodes[1].childNodes[5].textContent,
+      naissance: e.target.parentNode.childNodes[1].childNodes[1].childNodes[7].textContent,
+      ville: e.target.parentNode.childNodes[1].childNodes[1].childNodes[9].textContent,
+      id: e.target.parentNode.childNodes[1].childNodes[1].childNodes[1].textContent,
     };
 
     fetch(

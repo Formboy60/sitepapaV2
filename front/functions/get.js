@@ -13,6 +13,7 @@ function display(data, admin = false) {
   document.querySelector(".fiches").innerHTML = "";
 
   for (let art of data)
+  
     document.querySelector(
       ".fiches"
     ).innerHTML += 
@@ -23,13 +24,13 @@ function display(data, admin = false) {
           <p id="nom" contenteditable=${admin}>${art.nom}</p>
           <p id="prenom" contenteditable=${admin}>${art.prenom}</p>
           <p id="naissance" contenteditable=${admin}>${art.naissance}</p>        
-          <p id="ville" contenteditable=${admin}>test</p>
+          <p id="ville" contenteditable=${admin}>${art.ville}</p>
         </div>
         <div class='img'>
-          <img src="${art.photo}""/>
+          <img class='minImg' src="${art.photo}""/>
         </div>
-    </div>
-    <button class="detail">détails</button>
+      </div>
+    <button class="detail">Détails</button>
     <button class="sup">supprimer</button>
     <button class="edit">editer</button>
   </div> `;
@@ -77,6 +78,7 @@ function pagination(data, admin) {
 
   const searchBar = document.querySelector(".nom");
   const searchBar2 = document.querySelector(".prenom");
+  let searchBar3 = document.querySelector(".ville");
 
   searchBar.addEventListener("keyup", () => {
     let input = searchBar.value;
@@ -84,7 +86,7 @@ function pagination(data, admin) {
     const filter = data.filter((hub) => {
       return hub.nom.toLowerCase().includes(input);
     });
-    if (searchBar.value == "" && searchBar2.value == "") {
+    if (searchBar.value == "" && searchBar2.value == "" && searchBar3.value == "") {
       display(pagination[0], admin);
     } else {
       display(filter, admin);
@@ -97,7 +99,20 @@ function pagination(data, admin) {
     const filter = data.filter((hub) => {
       return hub.prenom.toLowerCase().includes(input);
     });
-    if (searchBar.value == "" && searchBar2.value == "") {
+    if (searchBar.value == "" && searchBar2.value == "" && searchBar3.value == "") {
+      display(pagination[0], admin);
+    } else {
+      display(filter, admin);
+    }
+  });
+
+  searchBar3.addEventListener("keyup", () => {
+    let input = searchBar3.value;
+    input = input.toLowerCase();
+    const filter = data.filter((hub) => {
+      return hub.ville.toLowerCase().includes(input);
+    });
+    if (searchBar.value == "" && searchBar2.value == "" && searchBar3.value == "") {
       display(pagination[0], admin);
     } else {
       display(filter, admin);
@@ -109,10 +124,10 @@ function pagination(data, admin) {
 let perso = [];
 
 document.querySelector("main").addEventListener("click", (e) => {
-  if (e.target.textContent == "détails") {
+  if (e.target.textContent == "Détails") {
     
     document.querySelector(".fiches").style.display = "none";
-    document.querySelector(".perso").style.display = "block";
+    document.querySelector(".perso").style.display = "flex";
 
     fetch(
       `http://localhost:3000/projet/${e.target.parentNode.getAttribute("data-id")}`
@@ -126,25 +141,29 @@ document.querySelector("main").addEventListener("click", (e) => {
     function affiche(perso, admin = false) {
       document.querySelector(
         ".perso"
-      ).innerHTML = `<div class="info" data-id="${perso[0]._id}">
-            <img src="" alt="">
-            <div class="id">
-              <div class='text'>
-                <p id="uidBig" contenteditable=${admin}>${perso[0].id}</p>
-                <p id="nomBig" contenteditable=${admin}>${perso[0].nom}</p>
-                <p id="prenomBig" contenteditable=${admin}>${perso[0].prenom}</p>
-                <p id="naissanceBig" contenteditable=${admin}>${perso[0].naissance}</p>        
-                <p id="villeBig" contenteditable=${admin}>${perso[0].ville}</p>
-              </div>
-              <div class='imgBig'>
-                <img src="${perso[0].photo}"/>
-              </div>
-              <p id="decriptionBig">${perso[0].description}</p>
-            </div>
-            <button class="retour">retour</button>
-            <button class="sup">supprimer</button>
-        <button class="edit">editer</button>
-          </div> `;
+      ).innerHTML = `<div class="infoBig" data-id="${perso[0]._id}">
+      <button class="retourH">retour</button>
+                      <div class="idBig">
+                        <div class='haut'>
+                          <div class='textBig'>
+                            <p id="uidBig" contenteditable=${admin}>${perso[0].id}</p>
+                            <p id="nomBig" contenteditable=${admin}>${perso[0].nom}</p>
+                            <p id="prenomBig" contenteditable=${admin}>${perso[0].prenom}</p>
+                            <p id="naissanceBig" contenteditable=${admin}>${perso[0].naissance}</p>        
+                            <p id="villeBig" contenteditable=${admin}>${perso[0].ville}</p>
+                          </div>
+                          <div class='imgBig'>
+                            <img class='bigImg' src="${perso[0].photo}"/>
+                          </div>
+                        </div>
+                        <div class='bas'>
+                        <p id="decriptionBig">${perso[0].description}</p>
+                        </div>
+                      </div>
+                      <button class="retour">retour</button>
+                      <button class="sup">supprimer</button>
+                      <button class="edit">editer</button>
+                    </div> `;
     }
   }
   if (e.target.textContent == "retour") {

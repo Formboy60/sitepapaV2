@@ -22,7 +22,8 @@ const ficheSchema = new mongoose.Schema({
     type: String
   },
   ville:{
-    type: String
+    type: String,
+    required: true,
   },
   description:{
     type: String
