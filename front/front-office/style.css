@@ -1,32 +1,33 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root{
-    --body: #AC947A;
-    --bg: #816b54;
+:root {
+    --bg: #AC947A;
+    --body: #816b54;
     --border: 1px black solid;
 }
 
 /*/////// CSS header //////*/
 
-header{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+header {
+    display: flex;
+    justify-content: center;
     height: 12vh;
     align-items: center;
-    background-image: url(../asset/Bandeau\ 10.jpg);   
+    background-image: url(../asset/Bandeau\ 10.jpg);
 }
 
-.title{
+.title {
     font-size: 1.3rem;
-    backdrop-filter: blur(8px);    
+    backdrop-filter: blur(8px);
     text-decoration: none;
 }
 
-.title, footer{
+.title,
+footer {
     justify-content: center;
     color: rgb(255, 254, 254);
     grid-column: 2;
@@ -34,32 +35,30 @@ header{
     text-shadow: 1px 1px 0 black;
 }
 
-footer{
-    font-size: 1.7rem;
-    margin: 2% 0 2% 0;   
-}
-
-.cont{
-    color: rgb(255, 254, 254);;
+.cont {
+    color: rgb(255, 254, 254);
+    ;
 }
 
 /* main */
 
-body{
+body {
     background-color: var(--body);
 }
 
 
 /*////// CSS barre de recherche //////*/
 
-.searchBar{
+.searchBar {
     display: flex;
     justify-content: center;
     gap: 3rem;
     padding: 2% 0 4% 0;
 }
 
-.nom, .prenom, .ville{
+.nom,
+.prenom,
+.ville {
     height: 2rem;
     width: 20rem;
     border-radius: 5px;
@@ -67,44 +66,47 @@ body{
 
 /*////// CSS GET //////*/
 
-.fiches{
+.fiches {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     gap: 3%;
 }
 
-.sup, .edit{
+.sup,
+.edit {
     display: none;
 }
 
-#description{
+#description {
     white-space: pre-wrap;
 }
 
-.info{
+.info {
     border: var(--border);
-    border-radius: 25px 10px ;
+    border-radius: 25px 10px;
     width: 350px;
     padding: 2%;
-    background-color: var(--bg) ;
+    background-color: var(--bg);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.id{
+.id {
     display: flex;
     justify-content: space-between;
     padding: 0 2% 0 1%;
 }
 
-.minImg{
+.minImg {
     max-width: 150px;
     max-height: 125px;
 }
 
-.detail, .retour, .retourH{
+.detail,
+.retour,
+.retourH {
     width: 98%;
     border-radius: 1508px;
     font-size: 0.9rem;
@@ -113,55 +115,55 @@ body{
 
 /*////// CSS get by ID ///////*/
 
-.perso{
+.perso {
     display: flex;
     justify-content: center;
 }
 
-.infoBig{
+.infoBig {
     width: 80%;
     padding: 0 2% 2% 2%;
     border: var(--border);
-    border-radius: 50px 5px ;
-    background-color:var(--bg)
+    border-radius: 50px 5px;
+    background-color: var(--bg)
 }
 
-.haut{
+.haut {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.textBig{
+.textBig {
     /* padding: 75px 0 0 75px; */
     height: 150px;
     font-size: 1.3rem;
 }
 
 
-.bigImg{   
+.bigImg {
     width: 250px;
 }
 
-.bas{
+.bas {
     display: flex;
     justify-content: center;
     margin-top: 3%;
     font-size: 1.1rem;
 }
 
-.retour{
+.retour {
     margin-top: 2%;
 }
 
-.retourH{
+.retourH {
     margin: 1% 0 2% 0;
 }
 
 
 /*////// css pagination ///////*/
 
-.pgn{
+.pgn {
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -169,7 +171,117 @@ body{
     padding: 1%;
 }
 
-.numPage{
+.numPage {
     width: 50px;
     height: 50px;
+}
+
+footer {
+    font-size: 1.7rem;
+    margin: 2% 0 2% 0;
+}
+
+/* /////// MEDIA QUERY //////*/
+
+/* //////// 1120px ///////*/
+@media all and (max-width: 1120px) {
+
+    .info {
+        width: 275px;
+    }
+}
+
+/* //////// 890px ///////*/
+
+@media all and (max-width: 890px) {
+
+    .retourH {
+        margin-top: 3%;
+    }
+
+    .fiches {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pgn {
+        margin-top: 20%;
+    }
+
+    .foot {
+        font-size: 1.3rem;
+    }
+
+}
+
+/* //////// 610px ///////*/
+
+@media all and (max-width: 610px) {
+
+    .retourH {
+        margin-top: 5%;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .searchBar {
+        flex-direction: column;
+        align-items: center;
+        gap: 2%;
+    }
+
+    .fiches {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .pgn {
+        margin-top: 110%;
+    }
+
+    .foot {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+}
+
+/* //////// 530px ///////*/
+@media all and (max-width: 530px) {
+
+    .pgn {
+        margin-top: 120%;
+    }
+
+}
+
+/* //////// 460px ///////*/
+@media all and (max-width: 460px) {
+
+    .pgn {
+        margin-top: 130%;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+}
+
+/* //////// 420px ///////*/
+@media all and (max-width: 420px) {
+
+    .pgn {
+        margin-top: 140%;
+    }
+
+}
+
+/* //////// 390px ///////*/
+@media all and (max-width: 390px) {
+
+    .pgn {
+        margin-top: 150%;
+    }
+
 }

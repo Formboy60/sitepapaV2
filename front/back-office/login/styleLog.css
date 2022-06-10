@@ -1,25 +1,25 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: #AC947A;
 }
 
 
-header{
+header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     height: 12vh;
     align-items: center;
-    background-image: url(../../asset/Bandeau\ 10.jpg);   
+    background-image: url(../../asset/Bandeau\ 10.jpg);
 }
 
-.title{
+.title {
     font-size: 1.3rem;
-    backdrop-filter: blur(8px);    
+    backdrop-filter: blur(8px);
     text-decoration: none;
     justify-content: center;
     color: rgb(255, 254, 254);
@@ -28,7 +28,7 @@ header{
     text-shadow: 1px 1px 0 black;
 }
 
-main{
+main {
     height: 60vh;
     display: flex;
     flex-direction: column;
@@ -36,7 +36,7 @@ main{
     align-items: center;
 }
 
-.form{
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,32 +45,32 @@ main{
     border: 1px black solid;
     border-radius: 25px 10px;
     padding: 2%;
-    background-color:#816b54;
+    background-color: #816b54;
 }
 
-p{
+p {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 2.5%;
 }
 
-input{
+input {
     height: 25px;
     width: 250px;
 }
 
-button{
+button {
     margin-top: 3.5%;
     width: 100px;
 }
 
-footer{
+footer {
     text-align: center;
 }
 
-.back{
+.back {
     text-decoration: none;
-    text-align: center;    
+    text-align: center;
     font-size: 1.3rem;
     color: white;
     text-shadow: 1px 1px 0 black;

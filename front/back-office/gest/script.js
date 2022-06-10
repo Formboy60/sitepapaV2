@@ -1,7 +1,13 @@
-import { isLogin } from "../login/fb/fb.js";
+import {
+  isLogin
+} from "../login/fb/fb.js";
 isLogin("../../front-office/index.html");
-import { get } from "../../functions/get.js";
-import { uploadFile } from "../login/fb/fb.js";
+import {
+  get
+} from "../../functions/get.js";
+import {
+  uploadFile
+} from "../login/fb/fb.js";
 
 
 get(true);
@@ -16,11 +22,11 @@ let nomPhoto = document.querySelector(".photo");
 let fichier = document.querySelector(".upload");
 let loader = document.querySelector('.loader')
 
-function reset(){
+function reset() {
   document.querySelector('.result').textContent = ""
 }
 
-function reload(){
+function reload() {
   console.log('coucou');
   location.reload()
 }
@@ -31,11 +37,11 @@ document.querySelector("main").addEventListener("click", (e) => {
   if (e.target.className === "sup") {
     loader.style.display = "flex"
     fetch(`http://localhost:3000/projet/${e.target.parentNode.parentNode.dataset.id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `${localStorage.getItem("token")}`,
-      },
-    })
+        method: "DELETE",
+        headers: {
+          Authorization: `${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => res.json())
       .then(
         (res) => {
@@ -48,11 +54,11 @@ document.querySelector("main").addEventListener("click", (e) => {
       .catch((res) => {
         loader.style.display = "none"
         document.querySelector(".result").textContent = res.message
-          setTimeout(reset, 2000);
+        setTimeout(reset, 2000);
       });
   } else if (e.target.className === "edit") {
     //////////// put front /////////////
-    
+
 
     loader.style.display = "flex"
     const p = document.createElement("p");
@@ -69,19 +75,19 @@ document.querySelector("main").addEventListener("click", (e) => {
     };
 
     fetch(
-      `http://localhost:3000/projet/${e.target.parentNode.parentNode.dataset.id}`,
+        `http://localhost:3000/projet/${e.target.parentNode.parentNode.dataset.id}`,
 
-      {
-        method: "PUT",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: `${localStorage.getItem("token")}`,
-        },
+        {
+          method: "PUT",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `${localStorage.getItem("token")}`,
+          },
 
-        body: JSON.stringify(newArticle),
-      }
-    )
+          body: JSON.stringify(newArticle),
+        }
+      )
       .then((res) => res.json())
       .then(
         (res) => {
@@ -94,7 +100,7 @@ document.querySelector("main").addEventListener("click", (e) => {
       .catch((res) => {
         loader.style.display = "none"
         document.querySelector(".result").textContent = res.message
-          setTimeout(reset, 2000);
+        setTimeout(reset, 2000);
       });
   }
 });
@@ -110,7 +116,7 @@ fichier.addEventListener("change", () => {
 /////////// post front /////////
 document.querySelector(".valide").addEventListener("click", () => {
   loader.style.display = "flex"
-  
+
   const p = document.createElement("p");
   p.textContent = description.value;
   p.innerHTML = p.innerHTML.replace(/\n/g, "<br>\n");
@@ -126,15 +132,15 @@ document.querySelector(".valide").addEventListener("click", () => {
   };
 
   fetch("http://localhost:3000/projet/arbres", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `${localStorage.getItem("token")}`,
-    },
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem("token")}`,
+      },
 
-    body: JSON.stringify(newFiche),
-  })
+      body: JSON.stringify(newFiche),
+    })
     .then((res) => res.json())
     .then(
       (res) => {
@@ -147,6 +153,6 @@ document.querySelector(".valide").addEventListener("click", () => {
     .catch((res) => {
       loader.style.display = "none"
       document.querySelector(".result").textContent = res.message
-        setTimeout(reset, 2000);
+      setTimeout(reset, 2000);
     });
 });

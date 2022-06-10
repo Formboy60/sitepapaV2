@@ -1,6 +1,3 @@
-
-
-
 let data = [];
 
 export function get(admin) {
@@ -16,10 +13,10 @@ function display(data, admin) {
   document.querySelector(".fiches").innerHTML = "";
 
   for (let art of data)
-  
+
     document.querySelector(
       ".fiches"
-    ).innerHTML += 
+    ).innerHTML +=
     `<div class="info" data-id="${art._id}">
       <div class="id">
         <div class='text'>
@@ -30,7 +27,7 @@ function display(data, admin) {
           <p id="ville" contenteditable=${admin}>${art.ville}</p>
         </div>
         <div class='img'>
-          <img class='minImg' src="${art.photo}""/>
+          <img class='minImg' src="${art.photo}" alt='photo personne'/>
         </div>
       </div>
     <button class="detail">Détails</button>
@@ -127,18 +124,19 @@ let perso = [];
 
 document.querySelector("main").addEventListener("click", (e) => {
   if (e.target.textContent == "Détails") {
-    
+
     document.querySelector(".fiches").style.display = "none";
     document.querySelector(".perso").style.display = "flex";
 
     fetch(
-      `http://localhost:3000/projet/${e.target.parentNode.getAttribute("data-id")}`
-    )
+        `http://localhost:3000/projet/${e.target.parentNode.getAttribute("data-id")}`
+      )
       .then((response) => response.json())
       .then((res) => {
         perso = res;
-        if(localStorage.getItem('token')){
-        return affiche(perso, true);}
+        if (localStorage.getItem('token')) {
+          return affiche(perso, true);
+        }
         affiche(perso)
       });
 
@@ -158,7 +156,7 @@ document.querySelector("main").addEventListener("click", (e) => {
                             <p id="villeBig" contenteditable=${admin}>${perso[0].ville}</p>
                           </div>
                           <div class='imgBig'>
-                            <img class='bigImg' src="${perso[0].photo}"/>
+                            <img class='bigImg' src="${perso[0].photo}" alt='photo personne'/>
                           </div>
                         </div>
                         <div class='bas'>
