@@ -1,3 +1,6 @@
+
+
+
 let data = [];
 
 export function get(admin) {
@@ -9,7 +12,7 @@ export function get(admin) {
     });
 }
 
-function display(data, admin = false) {
+function display(data, admin) {
   document.querySelector(".fiches").innerHTML = "";
 
   for (let art of data)
@@ -31,8 +34,6 @@ function display(data, admin = false) {
         </div>
       </div>
     <button class="detail">Détails</button>
-    <button class="sup">supprimer</button>
-    <button class="edit">editer</button>
   </div> `;
 }
 
@@ -121,6 +122,7 @@ function pagination(data, admin) {
 }
 ///////// get by ID //////////
 
+
 let perso = [];
 
 document.querySelector("main").addEventListener("click", (e) => {
@@ -135,14 +137,17 @@ document.querySelector("main").addEventListener("click", (e) => {
       .then((response) => response.json())
       .then((res) => {
         perso = res;
-        affiche(perso);
+        if(localStorage.getItem('token')){
+        return affiche(perso, true);}
+        affiche(perso)
       });
 
-    function affiche(perso, admin = false) {
+    function affiche(perso, admin) {
+      console.log(admin)
       document.querySelector(
         ".perso"
-      ).innerHTML = `<div class="infoBig" data-id="${perso[0]._id}">
-      <button class="retourH">retour</button>
+      ).innerHTML = ` <div class="infoBig" data-id="${perso[0]._id}">
+                      <button class="retourH">retour</button>
                       <div class="idBig">
                         <div class='haut'>
                           <div class='textBig'>
@@ -160,9 +165,11 @@ document.querySelector("main").addEventListener("click", (e) => {
                         <p id="decriptionBig">${perso[0].description}</p>
                         </div>
                       </div>
+                      <div class="but">
+                        <button class="sup">supprimer</button>
+                        <button class="edit">editer</button>
+                      </div>
                       <button class="retour">retour</button>
-                      <button class="sup">supprimer</button>
-                      <button class="edit">editer</button>
                     </div> `;
     }
   }

@@ -6,8 +6,32 @@
 
 body{
     background-color: #AC947A;
-    height: 100vh;
+}
+
+
+header{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 12vh;
+    align-items: center;
+    background-image: url(../../asset/Bandeau\ 10.jpg);   
+}
+
+.title{
+    font-size: 1.3rem;
+    backdrop-filter: blur(8px);    
+    text-decoration: none;
+    justify-content: center;
+    color: rgb(255, 254, 254);
+    grid-column: 2;
     display: flex;
+    text-shadow: 1px 1px 0 black;
+}
+
+main{
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -38,4 +62,16 @@ input{
 button{
     margin-top: 3.5%;
     width: 100px;
+}
+
+footer{
+    text-align: center;
+}
+
+.back{
+    text-decoration: none;
+    text-align: center;    
+    font-size: 1.3rem;
+    color: white;
+    text-shadow: 1px 1px 0 black;
 }

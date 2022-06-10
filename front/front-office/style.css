@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+:root{
+    --body: #AC947A;
+    --bg: #816b54;
+    --border: 1px black solid;
+}
 
 /*/////// CSS header //////*/
 
@@ -15,29 +20,33 @@ header{
     background-image: url(../asset/Bandeau\ 10.jpg);   
 }
 
-h1{
+.title{
+    font-size: 1.3rem;
+    backdrop-filter: blur(8px);    
+    text-decoration: none;
+}
+
+.title, footer{
+    justify-content: center;
+    color: rgb(255, 254, 254);
     grid-column: 2;
     display: flex;
-    justify-content: center;
-    font-size: 2.3rem;
-    color: rgb(255, 254, 254);
-    backdrop-filter: blur(7px);
     text-shadow: 1px 1px 0 black;
 }
 
-a{
-    grid-column: 3;
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 3rem;
-    text-decoration: none;
-    color: black;
+footer{
+    font-size: 1.7rem;
+    margin: 2% 0 2% 0;   
+}
+
+.cont{
+    color: rgb(255, 254, 254);;
 }
 
 /* main */
 
 body{
-    background-color: #AC947A;
+    background-color: var(--body);
 }
 
 
@@ -74,11 +83,14 @@ body{
 }
 
 .info{
-    border: 1px black solid;
+    border: var(--border);
     border-radius: 25px 10px ;
     width: 350px;
     padding: 2%;
-    background-color:#816b54 ;
+    background-color: var(--bg) ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .id{
@@ -109,9 +121,9 @@ body{
 .infoBig{
     width: 80%;
     padding: 0 2% 2% 2%;
-    border: 1px black solid;
+    border: var(--border);
     border-radius: 50px 5px ;
-    background-color:#816b54
+    background-color:var(--bg)
 }
 
 .haut{
