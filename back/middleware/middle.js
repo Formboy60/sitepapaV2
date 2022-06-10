@@ -39,7 +39,7 @@ async function isUser(req, res, next) {
     if (!isAuth) {
       res.status(403)
       res.json({
-        message: 'Veuillez vous connecter '
+        message: 'Veuillez vous connecter'
       })
     } else {
       next()
@@ -48,7 +48,7 @@ async function isUser(req, res, next) {
   } else {
     res.status(403)
     res.json({
-      message: 'Veuillez vous connecter '
+      message: 'Veuillez vous connecter'
     })
   }
 

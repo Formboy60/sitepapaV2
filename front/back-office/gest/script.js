@@ -27,7 +27,7 @@ function reset() {
 }
 
 function reload() {
-  console.log('coucou');
+  alert('je troune')
   location.reload()
 }
 
@@ -47,6 +47,9 @@ document.querySelector("main").addEventListener("click", (e) => {
         (res) => {
           loader.style.display = "none"
           document.querySelector(".result").textContent = res.message
+          if(res.message == 'Veuillez vous connecter'){
+            return
+          }
           setTimeout(reset, 2000)
           setTimeout(reload, 1000)
         }
@@ -92,7 +95,11 @@ document.querySelector("main").addEventListener("click", (e) => {
       .then(
         (res) => {
           loader.style.display = "none"
+          console.log(res)
           document.querySelector(".result").textContent = res.message
+          if(res.message == 'Veuillez vous connecter'){
+            return
+          }
           setTimeout(reset, 2000)
           setTimeout(reload, 1000)
         }
@@ -100,6 +107,7 @@ document.querySelector("main").addEventListener("click", (e) => {
       .catch((res) => {
         loader.style.display = "none"
         document.querySelector(".result").textContent = res.message
+        console.log('erreur')
         setTimeout(reset, 2000);
       });
   }
@@ -146,6 +154,9 @@ document.querySelector(".valide").addEventListener("click", () => {
       (res) => {
         loader.style.display = "none"
         document.querySelector(".result").textContent = res.message
+        if(res.message == 'Veuillez vous connecter'){
+          return
+        }
         setTimeout(reset, 2000)
         setTimeout(reload, 1000)
       }
