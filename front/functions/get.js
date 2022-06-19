@@ -119,7 +119,7 @@ function pagination(data, admin) {
 }
 ///////// get by ID //////////
 
-
+///////// fiche détaillée //////////
 let perso = [];
 
 document.querySelector("main").addEventListener("click", (e) => {
@@ -141,7 +141,6 @@ document.querySelector("main").addEventListener("click", (e) => {
       });
 
     function affiche(perso, admin) {
-      console.log(admin)
       document.querySelector(
         ".perso"
       ).innerHTML = ` <div class="infoBig" data-id="${perso[0]._id}">
@@ -154,13 +153,24 @@ document.querySelector("main").addEventListener("click", (e) => {
                             <p id="prenomBig" contenteditable=${admin}>${perso[0].prenom}</p>
                             <p id="naissanceBig" contenteditable=${admin}>${perso[0].naissance}</p>        
                             <p id="villeBig" contenteditable=${admin}>${perso[0].ville}</p>
+                            
                           </div>
                           <div class='imgBig'>
                             <img class='bigImg' src="${perso[0].photo}" alt='photo personne'/>
                           </div>
                         </div>
+                        <div>
+                            <p id="parent1" class="get" data-id="${perso[0].parentSo1}">Pere : ${perso[0].parentId1}</p>
+                            <p id="parent1" class="get" data-id="${perso[0].parentSo2}"> Mere : ${perso[0].parentId2}</p>
+                            <p id="enfant1" class="get" data-id="${perso[0].enfantSo1}"> Enfant 1 : ${perso[0].enfantId1}</p>
+                            <p id="enfant2" class="get" data-id="${perso[0].enfantSo2}"> Enfant 2 : ${perso[0].enfantId2}</p>
+                            <p id="enfant3" class="get" data-id="${perso[0].enfantSo3}"> Enfant 3 : ${perso[0].enfantId3}</p>
+                            <p id="enfant4" class="get" data-id="${perso[0].enfantSo4}"> Enfant 4 : ${perso[0].enfantId4}</p>
+                            <p id="enfant5" class="get" data-id="${perso[0].enfantSo5}"> Enfant 5 : ${perso[0].enfantId5}</p>
+                            <p id="enfant6" class="get" data-id="${perso[0].enfantSo6}"> Enfant 6 : ${perso[0].enfantId6}</p>
+                            </div>
                         <div class='bas'>
-                        <p id="decriptionBig">${perso[0].description}</p>
+                        <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
                         </div>
                       </div>
                       <div class="but">
@@ -176,3 +186,67 @@ document.querySelector("main").addEventListener("click", (e) => {
     document.querySelector(".perso").style.display = "none";
   }
 });
+///////// lien de parenté //////////
+document.querySelector("main").addEventListener("click", (e) => {
+  
+  if(e.target.getAttribute("data-id")===""){
+    return
+  }
+   else if (e.target.className === "get") {
+    console.log(e.target.getAttribute("data-id"))
+    document.querySelector(
+      ".perso"
+    ).innerHTML = ""  
+    
+    fetch(
+        `http://localhost:3000/projet/parent/${e.target.getAttribute("data-id")}`
+      )
+      .then((response) => response.json())
+      .then((res) => {
+        perso = res;
+        if (localStorage.getItem('token')) {
+          return affiche(perso, true);
+        }
+        
+        affiche(perso)
+      });
+
+    function affiche(perso, admin) {
+      document.querySelector(
+        ".perso"
+      ).innerHTML = ` <div class="infoBig" data-id="${perso[0]._id}">
+                      <button class="retourH">retour</button>
+                      <div class="idBig">
+                        <div class='haut'>
+                          <div class='textBig'>
+                            <p id="uidBig" contenteditable=${admin}>${perso[0].id}</p>
+                            <p id="nomBig" contenteditable=${admin}>${perso[0].nom}</p>
+                            <p id="prenomBig" contenteditable=${admin}>${perso[0].prenom}</p>
+                            <p id="naissanceBig" contenteditable=${admin}>${perso[0].naissance}</p>        
+                            <p id="villeBig" contenteditable=${admin}>${perso[0].ville}</p>
+                            <div class="parent"
+                            <p id="parent1">${perso[0].parentId1}</p>
+                            <p id="parent21">${perso[0].parentSo1}</p>
+                            </div>
+                          </div>
+                          <div class='imgBig'>
+                            <img class='bigImg' src="${perso[0].photo}" alt='photo personne'/>
+                          </div>
+                        </div>
+                        <div class='bas'>
+                        <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
+                        </div>
+                      </div>
+                      <div class="but">
+                        <button class="sup">supprimer</button>
+                        <button class="edit">editer</button>
+                      </div>
+                      <button class="retour">retour</button>
+                    </div> `;
+    }
+  }
+  if (e.target.textContent == "retour") {
+    document.querySelector(".fiches").style.display = "grid";
+    document.querySelector(".perso").style.display = "none";
+  }
+})

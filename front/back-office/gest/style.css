@@ -13,8 +13,9 @@
 /*/////// CSS header //////*/
 
 header {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 12vh;
     align-items: center;
     background-image: url(../../asset/Bandeau\ 10.jpg);
@@ -44,13 +45,11 @@ body {
 
 .admin {
     background-color: rgba(0, 0, 255, 0.564);
-    padding: 2%;
+    padding: 1% 2% 2% 2%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5%
 }
-
-
 
 .textarea {
     grid-area: 2/3/4/4;
@@ -58,6 +57,31 @@ body {
 
 .description {
     height: 100%;
+}
+
+.uid, .name, .prename, .dateNaissance, .villeNaissance{
+    border: 2px red solid;
+  
+}
+
+.liens{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: rgba(0, 0, 255, 0.564);
+    gap: 2%;
+}
+
+.parents, .enfants{
+    padding: 1% 2% 1% 2%;
+}
+
+.lien{
+    display: flex;    
+}
+
+.nu{
+    width: 16%;
 }
 
 /* ////// loader //////*/

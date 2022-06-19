@@ -13,6 +13,7 @@ const {
 
 /////////////// route POST /////////////////
 
+/* A post request to the server. */
 app.post('/projet/arbres', isUser, (req, res) => {
 
   const fiche = new ficheModel({
@@ -30,6 +31,8 @@ app.post('/projet/arbres', isUser, (req, res) => {
 
 /////////////////// route GET /////////////////
 
+/* A GET request to the /projet/ route. It is using the ficheModel to find all the documents in the
+database. It is then sending the response to the client. */
 app.get("/projet/", async (request, response) => {
   const fiche = await ficheModel.find({});
 
@@ -42,6 +45,8 @@ app.get("/projet/", async (request, response) => {
 
 ////////////////// route get ID ////////////////
 
+/* A GET request to the /projet/:id route. It is using the ficheModel to find one document in the
+database. It is then sending the response to the client. */
 app.get("/projet/:id", async (request, response) => {
   const fiche = await ficheModel.find({
     _id: request.params.id
@@ -54,25 +59,26 @@ app.get("/projet/:id", async (request, response) => {
   }
 });
 
-///////////////// route DELETE //////////////////
+/* A GET request to the /projet/parent/:id route. It is using the ficheModel to find one document
+in the database. It is then sending the response to the client. */
+app.get("/projet/parent/:id", async (request, response) => {
+  const fiche = await ficheModel.find({
+    id: request.params.id
+  });
 
-app.delete('/projet/:id', isUser, (req, res) => {
-  ficheModel.deleteOne({
-      _id: req.params.id
-    })
-    .then(() => res.status(200).json({
-      message: 'Données supprimées'
-    }))
-    .catch(error => {
-      res.status(400).json({
-        message: error
-      })
-    });
+  try {
+    response.send(fiche);
+  } catch (error) {
+    response.status(500).send(error);
+  }
 });
+
 
 
 //////////////// route PUT //////////////////////
 
+/* A PUT request to the /projet/:id route. It is using the ficheModel to find all the documents in the
+database. It is then sending the response to the client. */
 app.put('/projet/:id', isUser, (req, res) => {
 
   ficheModel.updateOne({
@@ -87,8 +93,24 @@ app.put('/projet/:id', isUser, (req, res) => {
     .catch(() => res.status(400).json({
       message: 'Echec de la modification'
     })); //noralemenr error à la place de ()//
-});
-
-
-
+  });
+  
+  
+  ///////////////// route DELETE //////////////////
+  
+  /* Deleting the data from the database. */
+  app.delete('/projet/:id', isUser, (req, res) => {
+    ficheModel.deleteOne({
+        _id: req.params.id
+      })
+      .then(() => res.status(200).json({
+        message: 'Données supprimées'
+      }))
+      .catch(error => {
+        res.status(400).json({
+          message: error
+        })
+      });
+  });
+  
 module.exports = app;
