@@ -26,7 +26,7 @@ app.post('/projet/arbres', isUser, (req, res) => {
     }))
     .catch(() => res.status(400).json({
       message: 'Erreur de transmission'
-    })); //noralemenr error à la place de ()//
+    })); 
 });
 
 /////////////////// route GET /////////////////
@@ -92,7 +92,7 @@ app.put('/projet/:id', isUser, (req, res) => {
     }))
     .catch(() => res.status(400).json({
       message: 'Echec de la modification'
-    })); //noralemenr error à la place de ()//
+    })); 
   });
   
   

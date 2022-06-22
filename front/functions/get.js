@@ -1,5 +1,9 @@
 let data = [];
 
+/**
+ * It fetches data from a server and then calls the pagination function.
+ * @param admin - boolean
+ */
 export function get(admin) {
   fetch("http://localhost:3000/projet")
     .then((response) => response.json())
@@ -9,6 +13,11 @@ export function get(admin) {
     });
 }
 
+/**
+ * It takes two arguments, data and admin, and then it does a bunch of stuff.
+ * @param data - the data that is returned from the server
+ * @param admin - boolean
+ */
 function display(data, admin) {
   document.querySelector(".fiches").innerHTML = "";
 
@@ -36,15 +45,17 @@ function display(data, admin) {
 
 ////////////// pagination /////////
 
+/* Creating an array of arrays. The first array is called `pagination` and the second array is called
+`page`. The first array is an array of arrays. The second array is an array of objects. */
 function pagination(data, admin) {
   let pagination = [];
   let page = [];
   for (let i = 0; i < data.length; i++) {
-    if (i % 12 == 0 && i != 0) {
+    if (i % 2 == 0 && i != 0) {
       pagination.push(page);
       page = [];
     } else {
-      if (12 > data.length - 12 * pagination.length) {
+      if (2 > data.length - 2 * pagination.length) {
         pagination.push(data.slice(i - 1, data.length));
         break;
       }
@@ -52,32 +63,46 @@ function pagination(data, admin) {
     page.push(data[i]);
   }
 
+
+  //mettre 12 à la place de 2 au dessus
+
   ////////// createElement pagination ///////////
+
+/* Creating a button for each page. */
+
 
   for (let j = 0; j < pagination.length; j++) {
     const btn = document.createElement("button");
     btn.className = "numPage";
     btn.textContent = j + 1;
-    document.querySelector(".pgn").appendChild(btn);
-  }
+    document.querySelector(".pgn").appendChild(btn);   
 
+  }
+  
   ////////// affichage de la premiere page de base ///////////////
 
   display(pagination[0], admin);
 
   /////////// affichage de la page correspondante ///////////////
 
-  document.querySelector(".pgn").addEventListener("click", (e) => {
-    let p = e.target.textContent - 1;
+  
+  document.querySelector(".pgn").addEventListener("click", (e) => {  
+    let p = e.target.textContent - 1;  
+    let page_number = document.querySelector('.pgn').querySelector('.numPage')
+    console.log(page_number);
+
     display(pagination[p], admin);
   });
-
   ///////////////// filter ////////////////////
 
   const searchBar = document.querySelector(".nom");
   const searchBar2 = document.querySelector(".prenom");
   let searchBar3 = document.querySelector(".ville");
 
+/* Listening for a keyup event on the search bar. When a keyup event is detected, it takes the value of
+the search bar and makes it lowercase. Then it filters the data array and returns the data that
+includes the input. If the search bar is empty, it displays the first page of the pagination.
+Otherwise, it displays the filtered data. */
   searchBar.addEventListener("keyup", () => {
     let input = searchBar.value;
     input = input.toLowerCase();
@@ -128,6 +153,7 @@ document.querySelector("main").addEventListener("click", (e) => {
     document.querySelector(".fiches").style.display = "none";
     document.querySelector(".perso").style.display = "flex";
 
+  /* Fetching data from the server and then it is calling the `affiche` function. */
     fetch(
         `http://localhost:3000/projet/${e.target.parentNode.getAttribute("data-id")}`
       )
@@ -140,6 +166,12 @@ document.querySelector("main").addEventListener("click", (e) => {
         affiche(perso)
       });
 
+    /**
+     * It displays the information of a person in a bigger window.
+     * </code>
+     * @param perso - the object that contains all the data
+     * @param admin - boolean
+     */
     function affiche(perso, admin) {
       document.querySelector(
         ".perso"
@@ -161,7 +193,7 @@ document.querySelector("main").addEventListener("click", (e) => {
                         </div>
                         <div>
                             <p id="parent1" class="get" data-id="${perso[0].parentSo1}">Pere : ${perso[0].parentId1}</p>
-                            <p id="parent1" class="get" data-id="${perso[0].parentSo2}"> Mere : ${perso[0].parentId2}</p>
+                            <p id="parent2" class="get" data-id="${perso[0].parentSo2}"> Mere : ${perso[0].parentId2}</p>
                             <p id="enfant1" class="get" data-id="${perso[0].enfantSo1}"> Enfant 1 : ${perso[0].enfantId1}</p>
                             <p id="enfant2" class="get" data-id="${perso[0].enfantSo2}"> Enfant 2 : ${perso[0].enfantId2}</p>
                             <p id="enfant3" class="get" data-id="${perso[0].enfantSo3}"> Enfant 3 : ${perso[0].enfantId3}</p>
@@ -179,12 +211,39 @@ document.querySelector("main").addEventListener("click", (e) => {
                       </div>
                       <button class="retour">retour</button>
                     </div> `;
+
+                    if(document.querySelector('#parent1').textContent===" Pere : "){
+                      document.querySelector('#parent1').style.display='none'
+                    }
+                    if(document.querySelector('#parent2').textContent===" Mere : "){
+                      document.querySelector('#parent2').style.display='none'
+                    }
+                    if(document.querySelector('#enfant1').textContent===" Enfant 1 : "){
+                      document.querySelector('#enfant1').style.display='none'
+                    }
+                    if(document.querySelector('#enfant2').textContent===" Enfant 2 : "){
+                      document.querySelector('#enfant2').style.display='none'
+                    }
+                    if(document.querySelector('#enfant3').textContent===" Enfant 3 : "){
+                      document.querySelector('#enfant3').style.display='none'
+                    }
+                    if(document.querySelector('#enfant4').textContent===" Enfant 4 : "){
+                      document.querySelector('#enfant4').style.display='none'
+                    }
+                    if(document.querySelector('#enfant5').textContent===" Enfant 5 : "){
+                      document.querySelector('#enfant5').style.display='none'
+                    }
+                    if(document.querySelector('#enfant6').textContent===" Enfant 6 : "){
+                      document.querySelector('#enfant6').style.display='none'
+                    }
     }
   }
+
   if (e.target.textContent == "retour") {
     document.querySelector(".fiches").style.display = "grid";
     document.querySelector(".perso").style.display = "none";
   }
+  
 });
 ///////// lien de parenté //////////
 document.querySelector("main").addEventListener("click", (e) => {
@@ -243,10 +302,74 @@ document.querySelector("main").addEventListener("click", (e) => {
                       </div>
                       <button class="retour">retour</button>
                     </div> `;
+
+                    if(document.querySelector('#parent1').textContent===" Pere : "){
+                      document.querySelector('#parent1').style.display='none'
+                    }
+                    if(document.querySelector('#parent2').textContent===" Mere : "){
+                      document.querySelector('#parent2').style.display='none'
+                    }
+                    if(document.querySelector('#enfant1').textContent===" Enfant 1 : "){
+                      document.querySelector('#enfant1').style.display='none'
+                    }
+                    if(document.querySelector('#enfant2').textContent===" Enfant 2 : "){
+                      document.querySelector('#enfant2').style.display='none'
+                    }
+                    if(document.querySelector('#enfant3').textContent===" Enfant 3 : "){
+                      document.querySelector('#enfant3').style.display='none'
+                    }
+                    if(document.querySelector('#enfant4').textContent===" Enfant 4 : "){
+                      document.querySelector('#enfant4').style.display='none'
+                    }
+                    if(document.querySelector('#enfant5').textContent===" Enfant 5 : "){
+                      document.querySelector('#enfant5').style.display='none'
+                    }
+                    if(document.querySelector('#enfant6').textContent===" Enfant 6 : "){
+                      document.querySelector('#enfant6').style.display='none'
+                    }
     }
   }
   if (e.target.textContent == "retour") {
     document.querySelector(".fiches").style.display = "grid";
     document.querySelector(".perso").style.display = "none";
   }
+ 
 })
+
+
+
+
+
+
+
+////////// affichage de la page correspondante ///////////////
+
+
+document.querySelector(".pagination").addEventListener("click", (e) => {  
+  let p = e.target.textContent - 1;  
+  let page_number = document.querySelector('.pagination').querySelector('.pagi')
+  console.log(page_number);
+
+  display(pagination[p], admin);
+});
+
+// mémoire pagination///////
+
+//let currentpage = (de base 1, injecté avec le boutton)
+
+// ensuite on change la valeur de currentpage avec en cliquant sur le bouton de la page. 
+// si currentpage est supérieur ou égale à 4, on supprime les deux avant et les deux après
+
+//for (let i = 0; i < pagination.length; i++) {
+//   if (i == currentpage - 1) {
+//     page_number[i].style.opacity = "1.0";
+// } else if (i == current_page - 2 || i == current_page - 3 || i == current_page +2 || i == current_page +3){
+//   page_number[i].style.opacity = "0.5";
+// }
+// else {
+//     page_number[i].style.display = "none";
+// }
+// let currentpage = 1   currentpage = e.target.textContent
+
+// let pagi = document.querySelector('.pagi')
+// pagi.innerHTML += "<span class='clickPageNumber'>" + j + "</span>";
