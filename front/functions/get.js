@@ -73,7 +73,7 @@ function pagination(data, admin) {
 
   for (let j = 0; j < pagination.length; j++) {
     const btn = document.createElement("button");
-    btn.className = "numPage";
+    btn.className = `numPage numPage${j}`;
     btn.textContent = j + 1;
     document.querySelector(".pgn").appendChild(btn);   
 
@@ -85,14 +85,36 @@ function pagination(data, admin) {
 
   /////////// affichage de la page correspondante ///////////////
 
+  let current_page= 1
+  document.querySelector(`.numPage0`).style.backgroundColor = "rgba(0, 0, 255, 0.564)"
+    document.querySelector(`.numPage0`).style.color = "white"
+  for(let i=current_page; i< pagination.length; i++){
+    if(parseInt(current_page, 10)+3 <=i){        
+      document.querySelector(`.numPage${i}`).style.display = 'none'
+    }
+  }
   
   document.querySelector(".pgn").addEventListener("click", (e) => {  
-    let p = e.target.textContent - 1;  
-    let page_number = document.querySelector('.pgn').querySelector('.numPage')
-    console.log(page_number);
-
+    document.querySelector(`.numPage`).style.backgroundColor = "white"
+    current_page = e.target.textContent
+    let p = e.target.textContent - 1; 
+    let displayPage = parseInt(current_page, 10)
+    console.log(displayPage);    
+    for(let i=0; i< pagination.length; i++){ 
+      document.querySelector(`.numPage${i}`).style.backgroundColor = "white"
+      document.querySelector(`.numPage${i}`).style.color = "black"   
+      if (displayPage+2 <= i || i+3 < displayPage){        
+        document.querySelector(`.numPage${i}`).style.display = 'none'
+      } else if (displayPage < displayPage+2 || displayPage > displayPage-3){
+        document.querySelector(`.numPage${i}`).style.display = 'block'
+      } 
+    }    
+    document.querySelector(`.numPage${displayPage-1}`).style.backgroundColor = "rgba(0, 0, 255, 0.564)"
+    document.querySelector(`.numPage${displayPage-1}`).style.color = "white"
     display(pagination[p], admin);
   });
+
+ 
   ///////////////// filter ////////////////////
 
   const searchBar = document.querySelector(".nom");
@@ -142,6 +164,7 @@ Otherwise, it displays the filtered data. */
     }
   });
 }
+
 ///////// get by ID //////////
 
 ///////// fiche détaillée //////////
@@ -338,38 +361,3 @@ document.querySelector("main").addEventListener("click", (e) => {
 
 
 
-
-
-
-
-////////// affichage de la page correspondante ///////////////
-
-
-document.querySelector(".pagination").addEventListener("click", (e) => {  
-  let p = e.target.textContent - 1;  
-  let page_number = document.querySelector('.pagination').querySelector('.pagi')
-  console.log(page_number);
-
-  display(pagination[p], admin);
-});
-
-// mémoire pagination///////
-
-//let currentpage = (de base 1, injecté avec le boutton)
-
-// ensuite on change la valeur de currentpage avec en cliquant sur le bouton de la page. 
-// si currentpage est supérieur ou égale à 4, on supprime les deux avant et les deux après
-
-//for (let i = 0; i < pagination.length; i++) {
-//   if (i == currentpage - 1) {
-//     page_number[i].style.opacity = "1.0";
-// } else if (i == current_page - 2 || i == current_page - 3 || i == current_page +2 || i == current_page +3){
-//   page_number[i].style.opacity = "0.5";
-// }
-// else {
-//     page_number[i].style.display = "none";
-// }
-// let currentpage = 1   currentpage = e.target.textContent
-
-// let pagi = document.querySelector('.pagi')
-// pagi.innerHTML += "<span class='clickPageNumber'>" + j + "</span>";
