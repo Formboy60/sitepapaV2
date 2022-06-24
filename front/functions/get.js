@@ -55,14 +55,18 @@ function pagination(data, admin) {
       pagination.push(page);
       page = [];
     } else {
-      if (2 > data.length - 2 * pagination.length) {
-        pagination.push(data.slice(i - 1, data.length));
+      if ( 2 > data.length - 2 * pagination.length ) {
+        pagination.push(data.slice(i -1, data.length))
+        
+      } else if (1 > data.length - 2 * pagination.length){
+        pagination.push(data.slice(i -1, data.length))
         break;
       }
     }
     page.push(data[i]);
   }
-
+console.log(data)
+console.log(pagination)
 
   //mettre 12 à la place de 2 au dessus
 
@@ -75,7 +79,7 @@ function pagination(data, admin) {
     const btn = document.createElement("button");
     btn.className = `numPage numPage${j}`;
     btn.textContent = j + 1;
-    document.querySelector(".pgn").appendChild(btn);   
+    document.querySelector(".pgn").insertBefore(btn, document.querySelector(".last"));   
 
   }
   
@@ -87,19 +91,74 @@ function pagination(data, admin) {
 
   let current_page= 1
   document.querySelector(`.numPage0`).style.backgroundColor = "rgba(0, 0, 255, 0.564)"
-    document.querySelector(`.numPage0`).style.color = "white"
+  document.querySelector(`.numPage0`).style.color = "white"
   for(let i=current_page; i< pagination.length; i++){
     if(parseInt(current_page, 10)+3 <=i){        
       document.querySelector(`.numPage${i}`).style.display = 'none'
     }
   }
+  for(let i=current_page; i< pagination.length; i++){
+    if(parseInt(current_page, 10) < i+1){        
+      document.querySelector(`.numPage${i}`).style.backgroundColor = "white"
+      document.querySelector(`.numPage${i}`).style.color = "black" 
+    }
+  }
+
+  document.querySelector('.first').addEventListener("click", () =>{        
+      current_page = 1
+      
+      for(let i=0; i< pagination.length; i++){
+        if(parseInt(current_page, 10)+3 <=i){        
+          document.querySelector(`.numPage${i}`).style.display = 'none'
+        } else if (parseInt(current_page, 10)+3 >=i ){
+          document.querySelector(`.numPage${i}`).style.display = 'block'
+          document.querySelector(`.numPage0`).style.backgroundColor = "rgba(0, 0, 255, 0.564)"
+          document.querySelector(`.numPage0`).style.color = "white"
+        }
+      }
+      for(let i=current_page; i< pagination.length; i++){
+        if(parseInt(current_page, 10) < i+1){        
+          document.querySelector(`.numPage${i}`).style.backgroundColor = "white"
+          document.querySelector(`.numPage${i}`).style.color = "black" 
+        }
+      }
+      display(pagination[0], admin);
+  })
+
   
-  document.querySelector(".pgn").addEventListener("click", (e) => {  
+  document.querySelector('.last').addEventListener("click", () =>{        
+    current_page = pagination.length
+    
+    for(let i=0; i< pagination.length; i++){
+      if(parseInt(current_page, 10)-5 >=i){        
+        document.querySelector(`.numPage${i}`).style.display = 'none'
+      } else if (parseInt(current_page, 10)-5 <=i ){
+        document.querySelector(`.numPage${i}`).style.display = 'block'
+        document.querySelector(`.numPage${parseInt(current_page, 10)-1}`).style.backgroundColor = "rgba(0, 0, 255, 0.564)"
+        document.querySelector(`.numPage${parseInt(current_page, 10)-1}`).style.color = "white"
+      }
+    }
+    for(let i=current_page; i< pagination.length; i++){
+      if(parseInt(current_page, 10) < i+1){        
+        document.querySelector(`.numPage${i}`).style.backgroundColor = "white"
+        document.querySelector(`.numPage${i}`).style.color = "black" 
+      }
+    }
+ 
+    display(pagination[parseInt(current_page, 10)-1], admin);  
+   
+})
+ 
+  
+  document.querySelector(".pgn").addEventListener("click", (e) => {    
+  
+    if(e.target.textContent >= 1000 || e.target.textContent == "Début" || e.target.textContent == "Fin"){
+      return
+    }
     document.querySelector(`.numPage`).style.backgroundColor = "white"
     current_page = e.target.textContent
-    let p = e.target.textContent - 1; 
     let displayPage = parseInt(current_page, 10)
-    console.log(displayPage);    
+    let p = e.target.textContent - 1;        
     for(let i=0; i< pagination.length; i++){ 
       document.querySelector(`.numPage${i}`).style.backgroundColor = "white"
       document.querySelector(`.numPage${i}`).style.color = "black"   
@@ -108,12 +167,13 @@ function pagination(data, admin) {
       } else if (displayPage < displayPage+2 || displayPage > displayPage-3){
         document.querySelector(`.numPage${i}`).style.display = 'block'
       } 
-    }    
+    }
+        
     document.querySelector(`.numPage${displayPage-1}`).style.backgroundColor = "rgba(0, 0, 255, 0.564)"
     document.querySelector(`.numPage${displayPage-1}`).style.color = "white"
     display(pagination[p], admin);
+    
   });
-
  
   ///////////////// filter ////////////////////
 
@@ -358,6 +418,3 @@ document.querySelector("main").addEventListener("click", (e) => {
   }
  
 })
-
-
-
