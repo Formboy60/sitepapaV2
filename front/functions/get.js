@@ -55,136 +55,130 @@ function pagination(data, admin) {
       pagination.push(page);
       page = [];
     } else {
-      if ( 2 > data.length - 2 * pagination.length ) {
-        pagination.push(data.slice(i -1, data.length))
-        
-      } else if (1 > data.length - 2 * pagination.length){
-        pagination.push(data.slice(i -1, data.length))
-        break;
+      if (2 > data.length - 2 * pagination.length) {
+        pagination.push(data.slice(i - 1, data.length))
+        break
+      } else if (2 >= (data.length - 1) - 2 * pagination.length) {
+        pagination.push(data.slice(i - 1, data.length))
+        break
       }
     }
     page.push(data[i]);
   }
-console.log(data)
-console.log(pagination)
+  console.log(data)
+  console.log(pagination)
 
   //mettre 12 à la place de 2 au dessus
 
   ////////// createElement pagination ///////////
 
-/* Creating a button for each page. */
+  /* Creating a button for each page. */
 
 
   for (let j = 0; j < pagination.length; j++) {
     const btn = document.createElement("button");
     btn.className = `numPage numPage${j}`;
     btn.textContent = j + 1;
-    document.querySelector(".pgn").insertBefore(btn, document.querySelector(".last"));   
+    document.querySelector(".pgn").insertBefore(btn, document.querySelector(".last"));
 
   }
-  
+
   ////////// affichage de la premiere page de base ///////////////
 
   display(pagination[0], admin);
 
   /////////// affichage de la page correspondante ///////////////
 
-  let current_page= 1
+  let current_page = 1
   document.querySelector(`.numPage0`).style.backgroundColor = "rgba(0, 0, 255, 0.564)"
   document.querySelector(`.numPage0`).style.color = "white"
-  for(let i=current_page; i< pagination.length; i++){
-    if(parseInt(current_page, 10)+3 <=i){        
+  for (let i = current_page; i < pagination.length; i++) {
+    if (parseInt(current_page, 10) + 3 <= i) {
       document.querySelector(`.numPage${i}`).style.display = 'none'
     }
   }
-  for(let i=current_page; i< pagination.length; i++){
-    if(parseInt(current_page, 10) < i+1){        
+  for (let i = current_page; i < pagination.length; i++) {
+    if (parseInt(current_page, 10) < i + 1) {
       document.querySelector(`.numPage${i}`).style.backgroundColor = "white"
-      document.querySelector(`.numPage${i}`).style.color = "black" 
+      document.querySelector(`.numPage${i}`).style.color = "black"
     }
   }
 
-  document.querySelector('.first').addEventListener("click", () =>{        
-      current_page = 1
-      
-      for(let i=0; i< pagination.length; i++){
-        if(parseInt(current_page, 10)+3 <=i){        
-          document.querySelector(`.numPage${i}`).style.display = 'none'
-        } else if (parseInt(current_page, 10)+3 >=i ){
-          document.querySelector(`.numPage${i}`).style.display = 'block'
-          document.querySelector(`.numPage0`).style.backgroundColor = "rgba(0, 0, 255, 0.564)"
-          document.querySelector(`.numPage0`).style.color = "white"
-        }
+  document.querySelector('.first').addEventListener("click", () => {
+    current_page = 1
+
+    for (let i = 0; i < pagination.length; i++) {
+      if (parseInt(current_page, 10) + 3 <= i) {
+        document.querySelector(`.numPage${i}`).style.display = 'none'
+      } else if (parseInt(current_page, 10) + 3 >= i) {
+        document.querySelector(`.numPage${i}`).style.display = 'block'
+        document.querySelector(`.numPage0`).style.backgroundColor = "rgba(0, 0, 255, 0.564)"
+        document.querySelector(`.numPage0`).style.color = "white"
       }
-      for(let i=current_page; i< pagination.length; i++){
-        if(parseInt(current_page, 10) < i+1){        
-          document.querySelector(`.numPage${i}`).style.backgroundColor = "white"
-          document.querySelector(`.numPage${i}`).style.color = "black" 
-        }
+    }
+    for (let i = current_page; i < pagination.length; i++) {
+      if (parseInt(current_page, 10) < i + 1) {
+        document.querySelector(`.numPage${i}`).style.backgroundColor = "white"
+        document.querySelector(`.numPage${i}`).style.color = "black"
       }
-      display(pagination[0], admin);
+    }
+    display(pagination[0], admin);
   })
 
-  
-  document.querySelector('.last').addEventListener("click", () =>{        
+
+  document.querySelector('.last').addEventListener("click", () => {
     current_page = pagination.length
-    
-    for(let i=0; i< pagination.length; i++){
-      if(parseInt(current_page, 10)-5 >=i){        
+
+    for (let i = 0; i < pagination.length; i++) {
+      if (parseInt(current_page, 10) - 5 >= i) {
         document.querySelector(`.numPage${i}`).style.display = 'none'
-      } else if (parseInt(current_page, 10)-5 <=i ){
+      } else if (parseInt(current_page, 10) - 5 <= i) {
         document.querySelector(`.numPage${i}`).style.display = 'block'
+        document.querySelector(`.numPage${i}`).style.backgroundColor = "white"
+        document.querySelector(`.numPage${i}`).style.color = "black"
         document.querySelector(`.numPage${parseInt(current_page, 10)-1}`).style.backgroundColor = "rgba(0, 0, 255, 0.564)"
         document.querySelector(`.numPage${parseInt(current_page, 10)-1}`).style.color = "white"
       }
-    }
-    for(let i=current_page; i< pagination.length; i++){
-      if(parseInt(current_page, 10) < i+1){        
-        document.querySelector(`.numPage${i}`).style.backgroundColor = "white"
-        document.querySelector(`.numPage${i}`).style.color = "black" 
-      }
-    }
- 
-    display(pagination[parseInt(current_page, 10)-1], admin);  
-   
-})
- 
-  
-  document.querySelector(".pgn").addEventListener("click", (e) => {    
-  
-    if(e.target.textContent >= 1000 || e.target.textContent == "Début" || e.target.textContent == "Fin"){
+    }    
+    display(pagination[parseInt(current_page, 10) - 1], admin);
+  })
+
+
+  document.querySelector(".pgn").addEventListener("click", (e) => {
+
+    if (e.target.textContent >= 1000 || e.target.textContent == "Début" || e.target.textContent == "Fin") {
       return
     }
     document.querySelector(`.numPage`).style.backgroundColor = "white"
     current_page = e.target.textContent
     let displayPage = parseInt(current_page, 10)
-    let p = e.target.textContent - 1;        
-    for(let i=0; i< pagination.length; i++){ 
+    let p = e.target.textContent - 1;
+    for (let i = 0; i < pagination.length; i++) {
       document.querySelector(`.numPage${i}`).style.backgroundColor = "white"
-      document.querySelector(`.numPage${i}`).style.color = "black"   
-      if (displayPage+2 <= i || i+3 < displayPage){        
+      document.querySelector(`.numPage${i}`).style.color = "black"
+      if (displayPage + 2 <= i || i + 3 < displayPage) {
         document.querySelector(`.numPage${i}`).style.display = 'none'
-      } else if (displayPage < displayPage+2 || displayPage > displayPage-3){
+      } else if (displayPage < displayPage + 2 || displayPage > displayPage - 3) {
         document.querySelector(`.numPage${i}`).style.display = 'block'
-      } 
+      }
     }
-        
+
     document.querySelector(`.numPage${displayPage-1}`).style.backgroundColor = "rgba(0, 0, 255, 0.564)"
     document.querySelector(`.numPage${displayPage-1}`).style.color = "white"
     display(pagination[p], admin);
-    
+
   });
- 
+
   ///////////////// filter ////////////////////
 
   const searchBar = document.querySelector(".nom");
   const searchBar2 = document.querySelector(".prenom");
   let searchBar3 = document.querySelector(".ville");
 
-/* Listening for a keyup event on the search bar. When a keyup event is detected, it takes the value of
-the search bar and makes it lowercase. Then it filters the data array and returns the data that
-includes the input. If the search bar is empty, it displays the first page of the pagination.
-Otherwise, it displays the filtered data. */
+  /* Listening for a keyup event on the search bar. When a keyup event is detected, it takes the value of
+  the search bar and makes it lowercase. Then it filters the data array and returns the data that
+  includes the input. If the search bar is empty, it displays the first page of the pagination.
+  Otherwise, it displays the filtered data. */
   searchBar.addEventListener("keyup", () => {
     let input = searchBar.value;
     input = input.toLowerCase();
@@ -236,7 +230,7 @@ document.querySelector("main").addEventListener("click", (e) => {
     document.querySelector(".fiches").style.display = "none";
     document.querySelector(".perso").style.display = "flex";
 
-  /* Fetching data from the server and then it is calling the `affiche` function. */
+    /* Fetching data from the server and then it is calling the `affiche` function. */
     fetch(
         `http://localhost:3000/projet/${e.target.parentNode.getAttribute("data-id")}`
       )
@@ -295,30 +289,30 @@ document.querySelector("main").addEventListener("click", (e) => {
                       <button class="retour">retour</button>
                     </div> `;
 
-                    if(document.querySelector('#parent1').textContent===" Pere : "){
-                      document.querySelector('#parent1').style.display='none'
-                    }
-                    if(document.querySelector('#parent2').textContent===" Mere : "){
-                      document.querySelector('#parent2').style.display='none'
-                    }
-                    if(document.querySelector('#enfant1').textContent===" Enfant 1 : "){
-                      document.querySelector('#enfant1').style.display='none'
-                    }
-                    if(document.querySelector('#enfant2').textContent===" Enfant 2 : "){
-                      document.querySelector('#enfant2').style.display='none'
-                    }
-                    if(document.querySelector('#enfant3').textContent===" Enfant 3 : "){
-                      document.querySelector('#enfant3').style.display='none'
-                    }
-                    if(document.querySelector('#enfant4').textContent===" Enfant 4 : "){
-                      document.querySelector('#enfant4').style.display='none'
-                    }
-                    if(document.querySelector('#enfant5').textContent===" Enfant 5 : "){
-                      document.querySelector('#enfant5').style.display='none'
-                    }
-                    if(document.querySelector('#enfant6').textContent===" Enfant 6 : "){
-                      document.querySelector('#enfant6').style.display='none'
-                    }
+      if (document.querySelector('#parent1').textContent === " Pere : ") {
+        document.querySelector('#parent1').style.display = 'none'
+      }
+      if (document.querySelector('#parent2').textContent === " Mere : ") {
+        document.querySelector('#parent2').style.display = 'none'
+      }
+      if (document.querySelector('#enfant1').textContent === " Enfant 1 : ") {
+        document.querySelector('#enfant1').style.display = 'none'
+      }
+      if (document.querySelector('#enfant2').textContent === " Enfant 2 : ") {
+        document.querySelector('#enfant2').style.display = 'none'
+      }
+      if (document.querySelector('#enfant3').textContent === " Enfant 3 : ") {
+        document.querySelector('#enfant3').style.display = 'none'
+      }
+      if (document.querySelector('#enfant4').textContent === " Enfant 4 : ") {
+        document.querySelector('#enfant4').style.display = 'none'
+      }
+      if (document.querySelector('#enfant5').textContent === " Enfant 5 : ") {
+        document.querySelector('#enfant5').style.display = 'none'
+      }
+      if (document.querySelector('#enfant6').textContent === " Enfant 6 : ") {
+        document.querySelector('#enfant6').style.display = 'none'
+      }
     }
   }
 
@@ -326,20 +320,19 @@ document.querySelector("main").addEventListener("click", (e) => {
     document.querySelector(".fiches").style.display = "grid";
     document.querySelector(".perso").style.display = "none";
   }
-  
+
 });
 ///////// lien de parenté //////////
 document.querySelector("main").addEventListener("click", (e) => {
-  
-  if(e.target.getAttribute("data-id")===""){
+
+  if (e.target.getAttribute("data-id") === "") {
     return
-  }
-   else if (e.target.className === "get") {
+  } else if (e.target.className === "get") {
     console.log(e.target.getAttribute("data-id"))
     document.querySelector(
       ".perso"
-    ).innerHTML = ""  
-    
+    ).innerHTML = ""
+
     fetch(
         `http://localhost:3000/projet/parent/${e.target.getAttribute("data-id")}`
       )
@@ -349,7 +342,7 @@ document.querySelector("main").addEventListener("click", (e) => {
         if (localStorage.getItem('token')) {
           return affiche(perso, true);
         }
-        
+
         affiche(perso)
       });
 
@@ -386,35 +379,35 @@ document.querySelector("main").addEventListener("click", (e) => {
                       <button class="retour">retour</button>
                     </div> `;
 
-                    if(document.querySelector('#parent1').textContent===" Pere : "){
-                      document.querySelector('#parent1').style.display='none'
-                    }
-                    if(document.querySelector('#parent2').textContent===" Mere : "){
-                      document.querySelector('#parent2').style.display='none'
-                    }
-                    if(document.querySelector('#enfant1').textContent===" Enfant 1 : "){
-                      document.querySelector('#enfant1').style.display='none'
-                    }
-                    if(document.querySelector('#enfant2').textContent===" Enfant 2 : "){
-                      document.querySelector('#enfant2').style.display='none'
-                    }
-                    if(document.querySelector('#enfant3').textContent===" Enfant 3 : "){
-                      document.querySelector('#enfant3').style.display='none'
-                    }
-                    if(document.querySelector('#enfant4').textContent===" Enfant 4 : "){
-                      document.querySelector('#enfant4').style.display='none'
-                    }
-                    if(document.querySelector('#enfant5').textContent===" Enfant 5 : "){
-                      document.querySelector('#enfant5').style.display='none'
-                    }
-                    if(document.querySelector('#enfant6').textContent===" Enfant 6 : "){
-                      document.querySelector('#enfant6').style.display='none'
-                    }
+      if (document.querySelector('#parent1').textContent === " Pere : ") {
+        document.querySelector('#parent1').style.display = 'none'
+      }
+      if (document.querySelector('#parent2').textContent === " Mere : ") {
+        document.querySelector('#parent2').style.display = 'none'
+      }
+      if (document.querySelector('#enfant1').textContent === " Enfant 1 : ") {
+        document.querySelector('#enfant1').style.display = 'none'
+      }
+      if (document.querySelector('#enfant2').textContent === " Enfant 2 : ") {
+        document.querySelector('#enfant2').style.display = 'none'
+      }
+      if (document.querySelector('#enfant3').textContent === " Enfant 3 : ") {
+        document.querySelector('#enfant3').style.display = 'none'
+      }
+      if (document.querySelector('#enfant4').textContent === " Enfant 4 : ") {
+        document.querySelector('#enfant4').style.display = 'none'
+      }
+      if (document.querySelector('#enfant5').textContent === " Enfant 5 : ") {
+        document.querySelector('#enfant5').style.display = 'none'
+      }
+      if (document.querySelector('#enfant6').textContent === " Enfant 6 : ") {
+        document.querySelector('#enfant6').style.display = 'none'
+      }
     }
   }
   if (e.target.textContent == "retour") {
     document.querySelector(".fiches").style.display = "grid";
     document.querySelector(".perso").style.display = "none";
   }
- 
+
 })
