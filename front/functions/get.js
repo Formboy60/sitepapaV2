@@ -139,7 +139,7 @@ function pagination(data, admin) {
         document.querySelector(`.numPage${parseInt(current_page, 10)-1}`).style.backgroundColor = "rgba(0, 0, 255, 0.564)"
         document.querySelector(`.numPage${parseInt(current_page, 10)-1}`).style.color = "white"
       }
-    }    
+    }
     display(pagination[parseInt(current_page, 10) - 1], admin);
   })
 
@@ -269,14 +269,14 @@ document.querySelector("main").addEventListener("click", (e) => {
                           </div>
                         </div>
                         <div>
-                            <p id="parent1" class="get" data-id="${perso[0].parentSo1}">Pere : ${perso[0].parentId1}</p>
-                            <p id="parent2" class="get" data-id="${perso[0].parentSo2}"> Mere : ${perso[0].parentId2}</p>
-                            <p id="enfant1" class="get" data-id="${perso[0].enfantSo1}"> Enfant 1 : ${perso[0].enfantId1}</p>
-                            <p id="enfant2" class="get" data-id="${perso[0].enfantSo2}"> Enfant 2 : ${perso[0].enfantId2}</p>
-                            <p id="enfant3" class="get" data-id="${perso[0].enfantSo3}"> Enfant 3 : ${perso[0].enfantId3}</p>
-                            <p id="enfant4" class="get" data-id="${perso[0].enfantSo4}"> Enfant 4 : ${perso[0].enfantId4}</p>
-                            <p id="enfant5" class="get" data-id="${perso[0].enfantSo5}"> Enfant 5 : ${perso[0].enfantId5}</p>
-                            <p id="enfant6" class="get" data-id="${perso[0].enfantSo6}"> Enfant 6 : ${perso[0].enfantId6}</p>
+                            <p id="parent1" class="get" data-id="${perso[0].parentSo1}">Pere : <span class="np1" data-id="${perso[0].parentSo1}"> ${perso[0].parentId1}<span></p>
+                            <p id="parent2" class="get" data-id="${perso[0].parentSo2}"> Mere : <span class="np2" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
+                            <p id="enfant1" class="get" data-id="${perso[0].enfantSo1}"> Enfant 1 : <span class="ne1" data-id="${perso[0].enfantSo1}">${perso[0].enfantId1}<span></p>
+                            <p id="enfant2" class="get" data-id="${perso[0].enfantSo2}"> Enfant 2 : <span class="ne2" data-id="${perso[0].enfantSo2}">${perso[0].enfantId2}<span></p>
+                            <p id="enfant3" class="get" data-id="${perso[0].enfantSo3}"> Enfant 3 : <span class="ne3"data-id="${perso[0].enfantSo3}">${perso[0].enfantId3}<span></p>
+                            <p id="enfant4" class="get" data-id="${perso[0].enfantSo4}"> Enfant 4 : <span class="ne4" data-id="${perso[0].enfantSo4}">${perso[0].enfantId4}<span></p>
+                            <p id="enfant5" class="get" data-id="${perso[0].enfantSo5}"> Enfant 5 : <span class="ne5" data-id="${perso[0].enfantSo5}">${perso[0].enfantId5}<span></p>
+                            <p id="enfant6" class="get" data-id="${perso[0].enfantSo6}"> Enfant 6 : <span class="ne6" data-id="${perso[0].enfantSo6}">${perso[0].enfantId6}<span></p>
                             </div>
                         <div class='bas'>
                         <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
@@ -327,7 +327,7 @@ document.querySelector("main").addEventListener("click", (e) => {
 
   if (e.target.getAttribute("data-id") === "") {
     return
-  } else if (e.target.className === "get") {
+  } else if (e.target.className === "get" || e.target.tagName.toLowerCase() === 'span') {
     console.log(e.target.getAttribute("data-id"))
     document.querySelector(
       ".perso"
@@ -350,34 +350,40 @@ document.querySelector("main").addEventListener("click", (e) => {
       document.querySelector(
         ".perso"
       ).innerHTML = ` <div class="infoBig" data-id="${perso[0]._id}">
-                      <button class="retourH">retour</button>
-                      <div class="idBig">
-                        <div class='haut'>
-                          <div class='textBig'>
-                            <p id="uidBig" contenteditable=${admin}>${perso[0].id}</p>
-                            <p id="nomBig" contenteditable=${admin}>${perso[0].nom}</p>
-                            <p id="prenomBig" contenteditable=${admin}>${perso[0].prenom}</p>
-                            <p id="naissanceBig" contenteditable=${admin}>${perso[0].naissance}</p>        
-                            <p id="villeBig" contenteditable=${admin}>${perso[0].ville}</p>
-                            <div class="parent"
-                            <p id="parent1">${perso[0].parentId1}</p>
-                            <p id="parent21">${perso[0].parentSo1}</p>
-                            </div>
-                          </div>
-                          <div class='imgBig'>
-                            <img class='bigImg' src="${perso[0].photo}" alt='photo personne'/>
-                          </div>
-                        </div>
-                        <div class='bas'>
-                        <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
-                        </div>
-                      </div>
-                      <div class="but">
-                        <button class="sup">supprimer</button>
-                        <button class="edit">editer</button>
-                      </div>
-                      <button class="retour">retour</button>
-                    </div> `;
+      <button class="retourH">retour</button>
+      <div class="idBig">
+        <div class='haut'>
+          <div class='textBig'>
+            <p id="uidBig" contenteditable=${admin}>${perso[0].id}</p>
+            <p id="nomBig" contenteditable=${admin}>${perso[0].nom}</p>
+            <p id="prenomBig" contenteditable=${admin}>${perso[0].prenom}</p>
+            <p id="naissanceBig" contenteditable=${admin}>${perso[0].naissance}</p>        
+            <p id="villeBig" contenteditable=${admin}>${perso[0].ville}</p>
+            
+          </div>
+          <div class='imgBig'>
+            <img class='bigImg' src="${perso[0].photo}" alt='photo personne'/>
+          </div>
+        </div>
+        <div>
+            <p id="parent1" class="get" data-id="${perso[0].parentSo1}">Pere : <span class="np1" data-id="${perso[0].parentSo1}"> ${perso[0].parentId1}<span></p>
+            <p id="parent2" class="get" data-id="${perso[0].parentSo2}"> Mere : <span class="np2" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
+            <p id="enfant1" class="get" data-id="${perso[0].enfantSo1}"> Enfant 1 : <span class="ne1" data-id="${perso[0].enfantSo1}">${perso[0].enfantId1}<span></p>
+            <p id="enfant2" class="get" data-id="${perso[0].enfantSo2}"> Enfant 2 : <span class="ne2" data-id="${perso[0].enfantSo2}">${perso[0].enfantId2}<span></p>
+            <p id="enfant3" class="get" data-id="${perso[0].enfantSo3}"> Enfant 3 : <span class="ne3"data-id="${perso[0].enfantSo3}">${perso[0].enfantId3}<span></p>
+            <p id="enfant4" class="get" data-id="${perso[0].enfantSo4}"> Enfant 4 : <span class="ne4" data-id="${perso[0].enfantSo4}">${perso[0].enfantId4}<span></p>
+            <p id="enfant5" class="get" data-id="${perso[0].enfantSo5}"> Enfant 5 : <span class="ne5" data-id="${perso[0].enfantSo5}">${perso[0].enfantId5}<span></p>
+            <p id="enfant6" class="get" data-id="${perso[0].enfantSo6}"> Enfant 6 : <span class="ne6" data-id="${perso[0].enfantSo6}">${perso[0].enfantId6}<span></p>
+        <div class='bas'>
+        <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
+        </div>
+      </div>
+      <div class="but">
+        <button class="sup">supprimer</button>
+        <button class="edit">editer</button>
+      </div>
+      <button class="retour">retour</button>
+    </div> `;
 
       if (document.querySelector('#parent1').textContent === " Pere : ") {
         document.querySelector('#parent1').style.display = 'none'
@@ -410,4 +416,11 @@ document.querySelector("main").addEventListener("click", (e) => {
     document.querySelector(".perso").style.display = "none";
   }
 
+})
+
+
+document.querySelector('body').addEventListener("click", (e) => {
+  if (e.target.tagName.toLowerCase() === 'span') {
+    console.log(e.target.getAttribute('data-id'))
+  }
 })
