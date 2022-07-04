@@ -17,8 +17,14 @@ function erase() {
 }
 
 
-
 function sendMail(params) {
+    // const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    
+    // if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.querySelector('#mail')).value){
+    //     document.querySelector('.result').innerHTML = "Veuillez rentrer une adresse mail correcte"
+    //     return
+    // }
+
     load()
     let tempsParams = {
         from_name: document.getElementById('name').value,

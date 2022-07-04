@@ -1,7 +1,9 @@
 const express = require("express");
 const ficheModel = require("./model");
+const helmet = require('helmet');
 const app = express();
 let cors = require('cors')
+app.use(helmet());
 app.use(cors())
 app.use(express.json())
 
@@ -108,7 +110,7 @@ app.put('/projet/:id', isUser, (req, res) => {
       }))
       .catch(error => {
         res.status(400).json({
-          message: error
+          message: 'Echec de la suppression'
         })
       });
   });

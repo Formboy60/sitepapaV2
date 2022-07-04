@@ -82,16 +82,13 @@ document.querySelector("main").addEventListener("click", (e) => {
 
 let descriptionBig =  e.target.parentNode.parentNode.childNodes[3].childNodes[5].childNodes[1].textContent
 
-
-
-
     loader.style.display = "flex"
     const p = document.createElement("p");
    if(description.value == ""){
     p.textContent = descriptionBig
    } else { p.textContent = description.value}
     p.innerHTML = p.innerHTML.replace(/\n/g, "<br>\n");
-  console.log(p.innerHTML)
+ 
 
  
    if(parentId1.value == ""){
@@ -150,8 +147,7 @@ let descriptionBig =  e.target.parentNode.parentNode.childNodes[3].childNodes[5]
     enfantSo6.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[15].getAttribute('data-id')
    }
 
-
-
+   
     const newArticle = {
       nom: e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[3].textContent,
       prenom: e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[5].textContent,
@@ -200,8 +196,8 @@ let descriptionBig =  e.target.parentNode.parentNode.childNodes[3].childNodes[5]
           if(res.message == 'Veuillez vous connecter'){
             return
           }
-          // setTimeout(reset, 2000)
-          // setTimeout(reload, 1000)
+          setTimeout(reset, 2000)
+          setTimeout(reload, 1000)
         }
       )
       .catch((res) => {
@@ -283,3 +279,4 @@ document.querySelector(".valide").addEventListener("click", () => {
       setTimeout(reset, 2000);
     });
 });
+

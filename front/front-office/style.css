@@ -128,6 +128,12 @@ body {
     background-color: var(--bg)
 }
 
+.a:hover{
+    font-weight: bolder;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .haut {
     display: flex;
     justify-content: space-around;
@@ -257,6 +263,11 @@ footer {
 
     .pgn {
         margin-top: 120%;
+    }
+
+    .haut{
+        display: flex;
+        flex-direction: column-reverse;
     }
 
 }

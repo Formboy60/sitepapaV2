@@ -269,14 +269,14 @@ document.querySelector("main").addEventListener("click", (e) => {
                           </div>
                         </div>
                         <div>
-                            <p id="parent1" class="get" data-id="${perso[0].parentSo1}">Pere : <span class="np1" data-id="${perso[0].parentSo1}"> ${perso[0].parentId1}<span></p>
-                            <p id="parent2" class="get" data-id="${perso[0].parentSo2}"> Mere : <span class="np2" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
-                            <p id="enfant1" class="get" data-id="${perso[0].enfantSo1}"> Enfant 1 : <span class="ne1" data-id="${perso[0].enfantSo1}">${perso[0].enfantId1}<span></p>
-                            <p id="enfant2" class="get" data-id="${perso[0].enfantSo2}"> Enfant 2 : <span class="ne2" data-id="${perso[0].enfantSo2}">${perso[0].enfantId2}<span></p>
-                            <p id="enfant3" class="get" data-id="${perso[0].enfantSo3}"> Enfant 3 : <span class="ne3"data-id="${perso[0].enfantSo3}">${perso[0].enfantId3}<span></p>
-                            <p id="enfant4" class="get" data-id="${perso[0].enfantSo4}"> Enfant 4 : <span class="ne4" data-id="${perso[0].enfantSo4}">${perso[0].enfantId4}<span></p>
-                            <p id="enfant5" class="get" data-id="${perso[0].enfantSo5}"> Enfant 5 : <span class="ne5" data-id="${perso[0].enfantSo5}">${perso[0].enfantId5}<span></p>
-                            <p id="enfant6" class="get" data-id="${perso[0].enfantSo6}"> Enfant 6 : <span class="ne6" data-id="${perso[0].enfantSo6}">${perso[0].enfantId6}<span></p>
+                            <p id="parent1" class="get a" data-id="${perso[0].parentSo1}">Pere : <span class="np1 a" data-id="${perso[0].parentSo1}"> ${perso[0].parentId1}<span></p>
+                            <p id="parent2" class="get a" data-id="${perso[0].parentSo2}"> Mere : <span class="np2 a" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
+                            <p id="enfant1" class="get a" data-id="${perso[0].enfantSo1}"> Enfant 1 : <span class="ne1 a" data-id="${perso[0].enfantSo1}">${perso[0].enfantId1}<span></p>
+                            <p id="enfant2" class="get a" data-id="${perso[0].enfantSo2}"> Enfant 2 : <span class="ne2 a" data-id="${perso[0].enfantSo2}">${perso[0].enfantId2}<span></p>
+                            <p id="enfant3" class="get a" data-id="${perso[0].enfantSo3}"> Enfant 3 : <span class="ne3 a"data-id="${perso[0].enfantSo3}">${perso[0].enfantId3}<span></p>
+                            <p id="enfant4" class="get a" data-id="${perso[0].enfantSo4}"> Enfant 4 : <span class="ne4 a" data-id="${perso[0].enfantSo4}">${perso[0].enfantId4}<span></p>
+                            <p id="enfant5" class="get a" data-id="${perso[0].enfantSo5}"> Enfant 5 : <span class="ne5 a" data-id="${perso[0].enfantSo5}">${perso[0].enfantId5}<span></p>
+                            <p id="enfant6" class="get a" data-id="${perso[0].enfantSo6}"> Enfant 6 : <span class="ne6 a" data-id="${perso[0].enfantSo6}">${perso[0].enfantId6}<span></p>
                             </div>
                         <div class='bas'>
                         <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
@@ -339,12 +339,14 @@ document.querySelector("main").addEventListener("click", (e) => {
       .then((response) => response.json())
       .then((res) => {
         perso = res;
+    
         if (localStorage.getItem('token')) {
           return affiche(perso, true);
         }
-
-        affiche(perso)
+       
+        
       });
+      
 
     function affiche(perso, admin) {
       document.querySelector(
@@ -366,14 +368,14 @@ document.querySelector("main").addEventListener("click", (e) => {
           </div>
         </div>
         <div>
-            <p id="parent1" class="get" data-id="${perso[0].parentSo1}">Pere : <span class="np1" data-id="${perso[0].parentSo1}"> ${perso[0].parentId1}<span></p>
-            <p id="parent2" class="get" data-id="${perso[0].parentSo2}"> Mere : <span class="np2" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
-            <p id="enfant1" class="get" data-id="${perso[0].enfantSo1}"> Enfant 1 : <span class="ne1" data-id="${perso[0].enfantSo1}">${perso[0].enfantId1}<span></p>
-            <p id="enfant2" class="get" data-id="${perso[0].enfantSo2}"> Enfant 2 : <span class="ne2" data-id="${perso[0].enfantSo2}">${perso[0].enfantId2}<span></p>
-            <p id="enfant3" class="get" data-id="${perso[0].enfantSo3}"> Enfant 3 : <span class="ne3"data-id="${perso[0].enfantSo3}">${perso[0].enfantId3}<span></p>
-            <p id="enfant4" class="get" data-id="${perso[0].enfantSo4}"> Enfant 4 : <span class="ne4" data-id="${perso[0].enfantSo4}">${perso[0].enfantId4}<span></p>
-            <p id="enfant5" class="get" data-id="${perso[0].enfantSo5}"> Enfant 5 : <span class="ne5" data-id="${perso[0].enfantSo5}">${perso[0].enfantId5}<span></p>
-            <p id="enfant6" class="get" data-id="${perso[0].enfantSo6}"> Enfant 6 : <span class="ne6" data-id="${perso[0].enfantSo6}">${perso[0].enfantId6}<span></p>
+            <p id="parent1" class="get a" data-id="${perso[0].parentSo1}">Pere : <span class="np1 a" data-id="${perso[0].parentSo1}"> ${perso[0].parentId1}<span></p>
+            <p id="parent2" class="get a" data-id="${perso[0].parentSo2}"> Mere : <span class="np2 a" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
+            <p id="enfant1" class="get a" data-id="${perso[0].enfantSo1}"> Enfant 1 : <span class="ne1 a" data-id="${perso[0].enfantSo1}">${perso[0].enfantId1}<span></p>
+            <p id="enfant2" class="get a" data-id="${perso[0].enfantSo2}"> Enfant 2 : <span class="ne2 a" data-id="${perso[0].enfantSo2}">${perso[0].enfantId2}<span></p>
+            <p id="enfant3" class="get a" data-id="${perso[0].enfantSo3}"> Enfant 3 : <span class="ne3 a"data-id="${perso[0].enfantSo3}">${perso[0].enfantId3}<span></p>
+            <p id="enfant4" class="get a" data-id="${perso[0].enfantSo4}"> Enfant 4 : <span class="ne4 a" data-id="${perso[0].enfantSo4}">${perso[0].enfantId4}<span></p>
+            <p id="enfant5" class="get a" data-id="${perso[0].enfantSo5}"> Enfant 5 : <span class="ne5 a" data-id="${perso[0].enfantSo5}">${perso[0].enfantId5}<span></p>
+            <p id="enfant6" class="get a" data-id="${perso[0].enfantSo6}"> Enfant 6 : <span class="ne6 a" data-id="${perso[0].enfantSo6}">${perso[0].enfantId6}<span></p>
         <div class='bas'>
         <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
         </div>

@@ -12,6 +12,8 @@
 
 /*/////// CSS header //////*/
 
+
+
 header {
     display: flex;
     justify-content: center;
@@ -71,6 +73,8 @@ body {
     background-color: rgba(0, 0, 255, 0.564);
     gap: 2%;
 }
+
+
 
 .parents, .enfants{
     padding: 1% 2% 1% 2%;
@@ -224,7 +228,11 @@ textarea {
     font-size: 1.3rem;
 }
 
-
+.a:hover{
+    font-weight: bolder;
+    cursor: pointer;
+    text-decoration: underline;
+}
 
 .bigImg {
     width: 250px;
