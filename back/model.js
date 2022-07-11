@@ -46,10 +46,46 @@ const ficheSchema = new mongoose.Schema({
   enfantId6:{
     type: String
   },
+  enfantId7:{
+    type: String
+  },
+  enfantId8:{
+    type: String
+  },
+  enfantId9:{
+    type: String
+  },
+  enfantId10:{
+    type: String
+  },
+  enfantId11:{
+    type: String
+  },
+  enfantId12:{
+    type: String
+  }, 
+  enfantId13:{
+    type: String
+  },
+  enfantId14:{
+    type: String
+  },
+  enfantId15:{
+    type: String
+  },
   parentId1:{
     type: String
   },
   parentId2:{
+    type: String
+  },
+  conjointId1:{
+    type: String
+  },
+  conjointId2:{
+    type: String
+  },
+  conjointId3:{
     type: String
   },
   enfantSo1:{
@@ -70,12 +106,48 @@ const ficheSchema = new mongoose.Schema({
   enfantSo6:{
     type: String
   },
+  enfantSo7:{
+    type: String
+  },
+  enfantSo8:{
+    type: String
+  },
+  enfantSo9:{
+    type: String
+  },
+  enfantSo10:{
+    type: String
+  },
+  enfantSo11:{
+    type: String
+  },
+  enfantSo12:{
+    type: String
+  },
+  enfantSo13:{
+    type: String
+  },
+  enfantSo14:{
+    type: String
+  },
+  enfantSo15:{
+    type: String
+  },
   parentSo1:{
     type: String
   },
   parentSo2:{
     type: String
-  }
+  },
+  conjointSo1:{
+    type: String
+  },
+  conjointSo2:{
+    type: String
+  },
+  conjointSo3:{
+    type: String
+  },
 });
 
 

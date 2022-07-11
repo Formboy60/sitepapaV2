@@ -36,6 +36,30 @@ let enfantId5 = document.querySelector('.e5')
 let enfantSo5 = document.querySelector('.en5')
 let enfantId6 = document.querySelector('.e6')
 let enfantSo6 = document.querySelector('.en6')
+let enfantId7 = document.querySelector('.e7')
+let enfantSo7 = document.querySelector('.en7')
+let enfantId8 = document.querySelector('.e8')
+let enfantSo8 = document.querySelector('.en8')
+let enfantId9 = document.querySelector('.e9')
+let enfantSo9 = document.querySelector('.en9')
+let enfantId10 = document.querySelector('.e10')
+let enfantSo10 = document.querySelector('.en10')
+let enfantId11 = document.querySelector('.e11')
+let enfantSo11 = document.querySelector('.en11')
+let enfantId12 = document.querySelector('.e12')
+let enfantSo12 = document.querySelector('.en12')
+let enfantId13 = document.querySelector('.e13')
+let enfantSo13 = document.querySelector('.en13')
+let enfantId14 = document.querySelector('.e14')
+let enfantSo14 = document.querySelector('.en14')
+let enfantId15 = document.querySelector('.e15')
+let enfantSo15 = document.querySelector('.en15')
+let conjointId1 = document.querySelector('.c1')
+let conjointSo1 = document.querySelector('.cn1')
+let conjointId2 = document.querySelector('.c2')
+let conjointSo2 = document.querySelector('.cn2')
+let conjointId3 = document.querySelector('.c3')
+let conjointSo3 = document.querySelector('.cn3')
 
 let loader = document.querySelector('.loader')
 
@@ -80,6 +104,8 @@ document.querySelector("main").addEventListener("click", (e) => {
   } else if (e.target.className === "edit") {
     //////////// put front /////////////
 
+    console.log(e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[1])
+
 let descriptionBig =  e.target.parentNode.parentNode.childNodes[3].childNodes[5].childNodes[1].textContent
 
     loader.style.display = "flex"
@@ -95,59 +121,143 @@ let descriptionBig =  e.target.parentNode.parentNode.childNodes[3].childNodes[5]
     parentId1.value = document.querySelector(".np1").textContent
    }
    if(parentSo1.value ==""){
-    parentSo1.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].getAttribute('data-id')
+    parentSo1.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].childNodes[1].getAttribute('data-id')
    }
 
    if(parentId2.value == ""){
     parentId2.value = document.querySelector(".np2").textContent
    }
    if(parentSo2.value ==""){
-    parentSo2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].getAttribute('data-id')
+    parentSo2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].childNodes[3].getAttribute('data-id')
    }
 
    if(enfantId1.value == ""){
     enfantId1.value = document.querySelector(".ne1").textContent
    }
    if(enfantSo1.value ==""){
-    enfantSo1.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[5].getAttribute('data-id')
+    enfantSo1.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[1].getAttribute('data-id')
    }
 
    if(enfantId2.value == ""){
     enfantId2.value = document.querySelector(".ne2").textContent
    }
    if(enfantSo2.value ==""){
-    enfantSo2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[7].getAttribute('data-id')
+    enfantSo2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[3].getAttribute('data-id')
    }
 
    if(enfantId3.value == ""){
     enfantId3.value = document.querySelector(".ne3").textContent
    }
    if(enfantSo3.value ==""){
-    enfantSo3.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[9].getAttribute('data-id')
+    enfantSo3.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[5].getAttribute('data-id')
    }
 
    if(enfantId4.value == ""){
     enfantId4.value = document.querySelector(".ne4").textContent
    }
    if(enfantSo4.value ==""){
-    enfantSo4.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[11].getAttribute('data-id')
+    enfantSo4.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[7].getAttribute('data-id')
    }
 
    if(enfantId5.value == ""){
     enfantId5.value = document.querySelector(".ne5").textContent
    }
    if(enfantSo5.value ==""){
-    enfantSo5.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[13].getAttribute('data-id')
+    enfantSo5.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[9].getAttribute('data-id')
    }
 
    if(enfantId6.value == ""){
     enfantId6.value = document.querySelector(".ne6").textContent
    }
    if(enfantSo6.value ==""){
-    enfantSo6.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[15].getAttribute('data-id')
+    enfantSo6.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[11].getAttribute('data-id')
+   }
+   
+   if(enfantId7.value == ""){
+    enfantId7.value = document.querySelector(".ne7").textContent
+   }
+   if(enfantSo7.value ==""){
+    enfantSo7.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[13].getAttribute('data-id')
    }
 
+   if(enfantId8.value == ""){
+    enfantId8.value = document.querySelector(".ne8").textContent
+   }
+   if(enfantSo8.value ==""){
+    enfantSo8.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[15].getAttribute('data-id')
+   }
    
+   if(enfantId9.value == ""){
+    enfantId9.value = document.querySelector(".ne9").textContent
+   }
+   if(enfantSo9.value ==""){
+    enfantSo9.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[17].getAttribute('data-id')
+   }
+
+   if(enfantId10.value == ""){
+    enfantId10.value = document.querySelector(".ne10").textContent
+   }
+   if(enfantSo10.value ==""){
+    enfantSo10.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[19].getAttribute('data-id')
+   }
+
+   if(enfantId11.value == ""){
+    enfantId11.value = document.querySelector(".ne11").textContent
+   }
+   if(enfantSo11.value ==""){
+    enfantSo11.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[21].getAttribute('data-id')
+   }
+
+   if(enfantId12.value == ""){
+    enfantId12.value = document.querySelector(".ne12").textContent
+   }
+   if(enfantSo12.value ==""){
+    enfantSo12.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[23].getAttribute('data-id')
+   }
+
+   if(enfantId13.value == ""){
+    enfantId13.value = document.querySelector(".ne13").textContent
+   }
+   if(enfantSo13.value ==""){
+    enfantSo13.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[25].getAttribute('data-id')
+   }
+
+   if(enfantId14.value == ""){
+    enfantId14.value = document.querySelector(".ne14").textContent
+   }
+   if(enfantSo14.value ==""){
+    enfantSo14.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[27].getAttribute('data-id')
+   }
+
+   if(enfantId15.value == ""){
+    enfantId15.value = document.querySelector(".ne15").textContent
+   }
+   if(enfantSo15.value ==""){
+    enfantSo15.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[29].getAttribute('data-id')
+   }
+
+   if(conjointId1.value == ""){
+    conjointId1.value = document.querySelector(".nc1").textContent
+   }
+   if(conjointSo1.value ==""){
+    conjointSo1.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[1].getAttribute('data-id')
+   }
+
+   if(conjointId2.value == ""){
+    conjointId2.value = document.querySelector(".nc2").textContent
+   }
+   if(conjointSo2.value ==""){
+    conjointSo2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[3].getAttribute('data-id')
+   }
+
+   if(conjointId3.value == ""){
+    conjointId3.value = document.querySelector(".nc3").textContent
+   }
+   if(conjointSo3.value ==""){
+    conjointSo3.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[5].getAttribute('data-id')
+   }
+
+
     const newArticle = {
       nom: e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[3].textContent,
       prenom: e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[5].textContent,
@@ -171,6 +281,30 @@ let descriptionBig =  e.target.parentNode.parentNode.childNodes[3].childNodes[5]
       enfantSo5: enfantSo5.value,
       enfantId6: enfantId6.value,
       enfantSo6: enfantSo6.value,
+      enfantId7: enfantId7.value,
+      enfantSo7: enfantSo7.value,
+      enfantId8: enfantId8.value,
+      enfantSo8: enfantSo8.value,
+      enfantId9: enfantId9.value,
+      enfantSo9: enfantSo9.value,
+      enfantId10: enfantId10.value,
+      enfantSo10: enfantSo10.value,
+      enfantId11: enfantId11.value,
+      enfantSo11: enfantSo11.value,
+      enfantId12: enfantId12.value,
+      enfantSo12: enfantSo12.value,
+      enfantId13: enfantId13.value,
+      enfantSo13: enfantSo13.value,
+      enfantId14: enfantId14.value,
+      enfantSo14: enfantSo14.value,
+      enfantId15: enfantId15.value,
+      enfantSo15: enfantSo15.value,
+      conjointId1 : conjointId1.value,
+      conjointSo1 : conjointSo1.value,
+      conjointId2 : conjointId2.value,
+      conjointSo2 : conjointSo2.value,
+      conjointId3 : conjointId3.value,
+      conjointSo3 : conjointSo3.value,
     };
 
     fetch(
@@ -249,7 +383,33 @@ document.querySelector(".valide").addEventListener("click", () => {
     enfantSo5: enfantSo5.value,
     enfantId6: enfantId6.value,
     enfantSo6: enfantSo6.value,
+    enfantId7: enfantId7.value,
+    enfantSo7: enfantSo7.value,
+    enfantId8: enfantId8.value,
+    enfantSo8: enfantSo8.value,
+    enfantId9: enfantId9.value,
+    enfantSo9: enfantSo9.value,
+    enfantId10: enfantId10.value,
+    enfantSo10: enfantSo10.value,
+    enfantId11: enfantId11.value,
+    enfantSo11: enfantSo11.value,
+    enfantId12: enfantId12.value,
+    enfantSo12: enfantSo12.value,
+    enfantId13: enfantId13.value,
+    enfantSo13: enfantSo13.value,
+    enfantId14: enfantId14.value,
+    enfantSo14: enfantSo14.value,
+    enfantId15: enfantId15.value,
+    enfantSo15: enfantSo15.value,
+    conjointId1 : conjointId1.value,
+    conjointSo1 : conjointSo1.value,
+    conjointId2 : conjointId2.value,
+    conjointSo2 : conjointSo2.value,
+    conjointId3 : conjointId3.value,
+    conjointSo3 : conjointSo3.value,
   };
+
+
 
   fetch("http://localhost:3000/projet/arbres", {
       method: "POST",

@@ -32,6 +32,7 @@ header {
     grid-column: 2;
     display: flex;
     text-shadow: 1px 1px 0 black;
+    padding: 0 0.5% 0 0.5%;
 }
 
 
@@ -76,7 +77,7 @@ body {
 
 
 
-.parents, .enfants{
+.parents, .enfants, .conjoints{
     padding: 1% 2% 1% 2%;
 }
 
@@ -85,7 +86,7 @@ body {
 }
 
 .nu{
-    width: 16%;
+    width: 18%;
 }
 
 /* ////// loader //////*/
@@ -243,6 +244,11 @@ textarea {
     justify-content: center;
     margin-top: 3%;
     font-size: 1.1rem;
+}
+
+.bigLiens{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .retour {

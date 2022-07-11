@@ -51,14 +51,14 @@ function pagination(data, admin) {
   let pagination = [];
   let page = [];
   for (let i = 0; i < data.length; i++) {
-    if (i % 2 == 0 && i != 0) {
+    if (i % 12 == 0 && i != 0) {
       pagination.push(page);
       page = [];
     } else {
-      if (2 > data.length - 2 * pagination.length) {
+      if (12 > data.length - 12 * pagination.length) {
         pagination.push(data.slice(i - 1, data.length))
         break
-      } else if (2 >= (data.length - 1) - 2 * pagination.length) {
+      } else if (12 >= (data.length - 1) - 12 * pagination.length) {
         pagination.push(data.slice(i - 1, data.length))
         break
       }
@@ -179,12 +179,16 @@ function pagination(data, admin) {
   the search bar and makes it lowercase. Then it filters the data array and returns the data that
   includes the input. If the search bar is empty, it displays the first page of the pagination.
   Otherwise, it displays the filtered data. */
+  
+  let test = []
+  
   searchBar.addEventListener("keyup", () => {
     let input = searchBar.value;
     input = input.toLowerCase();
-    const filter = data.filter((hub) => {
+    let filter = data.filter((hub) => {
       return hub.nom.toLowerCase().includes(input);
     });
+    test = filter
     if (searchBar.value == "" && searchBar2.value == "" && searchBar3.value == "") {
       display(pagination[0], admin);
     } else {
@@ -195,6 +199,13 @@ function pagination(data, admin) {
   searchBar2.addEventListener("keyup", () => {
     let input = searchBar2.value;
     input = input.toLowerCase();
+    if(searchBar.value !==""){
+      const filter = test.filter((hub) => {
+        return hub.prenom.toLowerCase().includes(input);
+      });
+      test = filter
+      display(filter, admin);
+    } else {
     const filter = data.filter((hub) => {
       return hub.prenom.toLowerCase().includes(input);
     });
@@ -202,12 +213,20 @@ function pagination(data, admin) {
       display(pagination[0], admin);
     } else {
       display(filter, admin);
-    }
+    }}
   });
+
 
   searchBar3.addEventListener("keyup", () => {
     let input = searchBar3.value;
     input = input.toLowerCase();
+    if(searchBar2.value !==""){
+      const filter = test.filter((hub) => {
+        return hub.ville.toLowerCase().includes(input);
+      });
+      test = filter
+      display(filter, admin);
+    } else{
     const filter = data.filter((hub) => {
       return hub.ville.toLowerCase().includes(input);
     });
@@ -215,9 +234,11 @@ function pagination(data, admin) {
       display(pagination[0], admin);
     } else {
       display(filter, admin);
-    }
+    }}
   });
+
 }
+
 
 ///////// get by ID //////////
 
@@ -268,16 +289,34 @@ document.querySelector("main").addEventListener("click", (e) => {
                             <img class='bigImg' src="${perso[0].photo}" alt='photo personne'/>
                           </div>
                         </div>
-                        <div>
-                            <p id="parent1" class="get a" data-id="${perso[0].parentSo1}">Pere : <span class="np1 a" data-id="${perso[0].parentSo1}"> ${perso[0].parentId1}<span></p>
+                        <div class="bigLiens">
+                          <div class="bigParents">
+                            <p id="parent1" class="get a" data-id="${perso[0].parentSo1}"> Pere : <span class="np1 a" data-id="${perso[0].parentSo1}">${perso[0].parentId1}<span></p>
                             <p id="parent2" class="get a" data-id="${perso[0].parentSo2}"> Mere : <span class="np2 a" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
+                          </div>
+                          <div class="bigEnfants">
                             <p id="enfant1" class="get a" data-id="${perso[0].enfantSo1}"> Enfant 1 : <span class="ne1 a" data-id="${perso[0].enfantSo1}">${perso[0].enfantId1}<span></p>
                             <p id="enfant2" class="get a" data-id="${perso[0].enfantSo2}"> Enfant 2 : <span class="ne2 a" data-id="${perso[0].enfantSo2}">${perso[0].enfantId2}<span></p>
                             <p id="enfant3" class="get a" data-id="${perso[0].enfantSo3}"> Enfant 3 : <span class="ne3 a"data-id="${perso[0].enfantSo3}">${perso[0].enfantId3}<span></p>
                             <p id="enfant4" class="get a" data-id="${perso[0].enfantSo4}"> Enfant 4 : <span class="ne4 a" data-id="${perso[0].enfantSo4}">${perso[0].enfantId4}<span></p>
                             <p id="enfant5" class="get a" data-id="${perso[0].enfantSo5}"> Enfant 5 : <span class="ne5 a" data-id="${perso[0].enfantSo5}">${perso[0].enfantId5}<span></p>
                             <p id="enfant6" class="get a" data-id="${perso[0].enfantSo6}"> Enfant 6 : <span class="ne6 a" data-id="${perso[0].enfantSo6}">${perso[0].enfantId6}<span></p>
-                            </div>
+                            <p id="enfant7" class="get a" data-id="${perso[0].enfantSo7}"> Enfant 7 : <span class="ne7 a" data-id="${perso[0].enfantSo7}">${perso[0].enfantId7}<span></p>
+                            <p id="enfant8" class="get a" data-id="${perso[0].enfantSo8}"> Enfant 8 : <span class="ne8 a" data-id="${perso[0].enfantSo8}">${perso[0].enfantId8}<span></p>
+                            <p id="enfant9" class="get a" data-id="${perso[0].enfantSo9}"> Enfant 9 : <span class="ne9 a" data-id="${perso[0].enfantSo9}">${perso[0].enfantId9}<span></p>
+                            <p id="enfant10" class="get a" data-id="${perso[0].enfantSo10}"> Enfant 10 : <span class="ne10 a" data-id="${perso[0].enfantSo10}">${perso[0].enfantId10}<span></p>
+                            <p id="enfant11" class="get a" data-id="${perso[0].enfantSo11}"> Enfant 11 : <span class="ne11 a"data-id="${perso[0].enfantSo11}">${perso[0].enfantId11}<span></p>
+                            <p id="enfant12" class="get a" data-id="${perso[0].enfantSo12}"> Enfant 12 : <span class="ne12 a" data-id="${perso[0].enfantSo12}">${perso[0].enfantId12}<span></p>
+                            <p id="enfant13" class="get a" data-id="${perso[0].enfantSo13}"> Enfant 13 : <span class="ne13 a" data-id="${perso[0].enfantSo13}">${perso[0].enfantId13}<span></p>
+                            <p id="enfant14" class="get a" data-id="${perso[0].enfantSo14}"> Enfant 14 : <span class="ne14 a" data-id="${perso[0].enfantSo14}">${perso[0].enfantId14}<span></p>
+                            <p id="enfant15" class="get a" data-id="${perso[0].enfantSo15}"> Enfant 15 : <span class="ne15 a" data-id="${perso[0].enfantSo15}">${perso[0].enfantId15}<span></p>
+                          </div>
+                          <div class="bigConjoints">
+                            <p id="conjoint1" class="get a" data-id="${perso[0].conjointSo1}"> Conjoint 1 : <span class="nc1 a" data-id="${perso[0].conjointSo1}">${perso[0].conjointId1}<span></p>
+                            <p id="conjoint2" class="get a" data-id="${perso[0].conjointSo2}"> Conjoint 2 : <span class="nc2 a" data-id="${perso[0].conjointSo2}">${perso[0].conjointId2}<span></p>
+                            <p id="conjoint3" class="get a" data-id="${perso[0].conjointSo3}"> Conjoint 3 : <span class="nc3 a" data-id="${perso[0].conjointSo3}">${perso[0].conjointId3}<span></p>
+                          </div>
+                        </div>
                         <div class='bas'>
                         <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
                         </div>
@@ -307,11 +346,47 @@ document.querySelector("main").addEventListener("click", (e) => {
       if (document.querySelector('#enfant4').textContent === " Enfant 4 : ") {
         document.querySelector('#enfant4').style.display = 'none'
       }
-      if (document.querySelector('#enfant5').textContent === " Enfant 5 : ") {
+      if (document.querySelector('#enfant5').textContent === " Enfant 5 : " ) {
         document.querySelector('#enfant5').style.display = 'none'
       }
       if (document.querySelector('#enfant6').textContent === " Enfant 6 : ") {
         document.querySelector('#enfant6').style.display = 'none'
+      }
+      if (document.querySelector('#enfant7').textContent === " Enfant 7 : ") {
+        document.querySelector('#enfant7').style.display = 'none'
+      } 
+      if (document.querySelector('#enfant8').textContent === " Enfant 8 : ") {
+        document.querySelector('#enfant8').style.display = 'none'
+      } 
+      if (document.querySelector('#enfant9').textContent === " Enfant 9 : ") {
+        document.querySelector('#enfant9').style.display = 'none'
+      }
+      if (document.querySelector('#enfant10').textContent === " Enfant 10 : ") {
+        document.querySelector('#enfant10').style.display = 'none'
+      }
+      if (document.querySelector('#enfant11').textContent === " Enfant 11 : ") {
+        document.querySelector('#enfant11').style.display = 'none'
+      }
+      if (document.querySelector('#enfant12').textContent === " Enfant 12 : ") {
+        document.querySelector('#enfant12').style.display = 'none'
+      }
+      if (document.querySelector('#enfant13').textContent === " Enfant 13 : ") {
+        document.querySelector('#enfant13').style.display = 'none'
+      }
+      if (document.querySelector('#enfant14').textContent === " Enfant 14 : ") {
+        document.querySelector('#enfant14').style.display = 'none'
+      }
+      if (document.querySelector('#enfant15').textContent === " Enfant 15 : ") {
+        document.querySelector('#enfant15').style.display = 'none'
+      }
+      if (document.querySelector('#conjoint1').textContent === " Conjoint 1 : ") {
+        document.querySelector('#conjoint1').style.display = 'none'
+      }
+      if (document.querySelector('#conjoint2').textContent === " Conjoint 2 : ") {
+        document.querySelector('#conjoint2').style.display = 'none'
+      }
+      if (document.querySelector('#conjoint3').textContent === " Conjoint 3 : ") {
+        document.querySelector('#conjoint3').style.display = 'none'
       }
     }
   }
@@ -339,16 +414,26 @@ document.querySelector("main").addEventListener("click", (e) => {
       .then((response) => response.json())
       .then((res) => {
         perso = res;
-    
+        
         if (localStorage.getItem('token')) {
           return affiche(perso, true);
         }
-       
+      
         
       });
       
+      function reload() {
+        location.reload()
+      }
+
 
     function affiche(perso, admin) {
+      if(perso.length == 0){
+        document.querySelector(
+          ".perso"
+        ).innerHTML = `Aucun lien trouvé. Patientez un instant`
+        setTimeout(reload, 1000)
+      }
       document.querySelector(
         ".perso"
       ).innerHTML = ` <div class="infoBig" data-id="${perso[0]._id}">
@@ -368,7 +453,7 @@ document.querySelector("main").addEventListener("click", (e) => {
           </div>
         </div>
         <div>
-            <p id="parent1" class="get a" data-id="${perso[0].parentSo1}">Pere : <span class="np1 a" data-id="${perso[0].parentSo1}"> ${perso[0].parentId1}<span></p>
+            <p id="parent1" class="get a" data-id="${perso[0].parentSo1}"> Pere : <span class="np1 a" data-id="${perso[0].parentSo1}">${perso[0].parentId1}<span></p>
             <p id="parent2" class="get a" data-id="${perso[0].parentSo2}"> Mere : <span class="np2 a" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
             <p id="enfant1" class="get a" data-id="${perso[0].enfantSo1}"> Enfant 1 : <span class="ne1 a" data-id="${perso[0].enfantSo1}">${perso[0].enfantId1}<span></p>
             <p id="enfant2" class="get a" data-id="${perso[0].enfantSo2}"> Enfant 2 : <span class="ne2 a" data-id="${perso[0].enfantSo2}">${perso[0].enfantId2}<span></p>
@@ -376,6 +461,18 @@ document.querySelector("main").addEventListener("click", (e) => {
             <p id="enfant4" class="get a" data-id="${perso[0].enfantSo4}"> Enfant 4 : <span class="ne4 a" data-id="${perso[0].enfantSo4}">${perso[0].enfantId4}<span></p>
             <p id="enfant5" class="get a" data-id="${perso[0].enfantSo5}"> Enfant 5 : <span class="ne5 a" data-id="${perso[0].enfantSo5}">${perso[0].enfantId5}<span></p>
             <p id="enfant6" class="get a" data-id="${perso[0].enfantSo6}"> Enfant 6 : <span class="ne6 a" data-id="${perso[0].enfantSo6}">${perso[0].enfantId6}<span></p>
+            <p id="enfant7" class="get a" data-id="${perso[0].enfantSo7}"> Enfant 7 : <span class="ne7 a" data-id="${perso[0].enfantSo7}">${perso[0].enfantId7}<span></p>
+            <p id="enfant8" class="get a" data-id="${perso[0].enfantSo8}"> Enfant 8 : <span class="ne8 a" data-id="${perso[0].enfantSo8}">${perso[0].enfantId8}<span></p>
+            <p id="enfant9" class="get a" data-id="${perso[0].enfantSo9}"> Enfant 9 : <span class="ne9 a" data-id="${perso[0].enfantSo9}">${perso[0].enfantId9}<span></p>
+            <p id="enfant10" class="get a" data-id="${perso[0].enfantSo10}"> Enfant 10 : <span class="ne10 a" data-id="${perso[0].enfantSo10}">${perso[0].enfantId10}<span></p>
+            <p id="enfant11" class="get a" data-id="${perso[0].enfantSo11}"> Enfant 11 : <span class="ne11 a"data-id="${perso[0].enfantSo11}">${perso[0].enfantId11}<span></p>
+            <p id="enfant12" class="get a" data-id="${perso[0].enfantSo12}"> Enfant 12 : <span class="ne12 a" data-id="${perso[0].enfantSo12}">${perso[0].enfantId12}<span></p>
+            <p id="enfant13" class="get a" data-id="${perso[0].enfantSo13}"> Enfant 13 : <span class="ne13 a" data-id="${perso[0].enfantSo13}">${perso[0].enfantId13}<span></p>
+            <p id="enfant14" class="get a" data-id="${perso[0].enfantSo14}"> Enfant 14 : <span class="ne14 a" data-id="${perso[0].enfantSo14}">${perso[0].enfantId14}<span></p>
+            <p id="enfant15" class="get a" data-id="${perso[0].enfantSo15}"> Enfant 15 : <span class="ne15 a" data-id="${perso[0].enfantSo15}">${perso[0].enfantId15}<span></p>
+            <p id="conjoint1" class="get a" data-id="${perso[0].conjointSo1}"> conjoint 1 : <span class="nc1 a" data-id="${perso[0].conjointSo1}">${perso[0].conjointId1}<span></p>
+            <p id="conjoint2" class="get a" data-id="${perso[0].conjointSo2}"> conjoint 2 : <span class="nc2 a" data-id="${perso[0].conjointSo2}">${perso[0].conjointId2}<span></p>
+            <p id="conjoint3" class="get a" data-id="${perso[0].conjointSo3}"> conjoint 3 : <span class="nc3 a" data-id="${perso[0].conjointSo3}">${perso[0].conjointId3}<span></p>
         <div class='bas'>
         <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
         </div>
