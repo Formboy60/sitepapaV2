@@ -104,7 +104,7 @@ document.querySelector("main").addEventListener("click", (e) => {
   } else if (e.target.className === "edit") {
     //////////// put front /////////////
 
-    console.log(e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[1])
+    
 
 let descriptionBig =  e.target.parentNode.parentNode.childNodes[3].childNodes[5].childNodes[1].textContent
 
@@ -114,147 +114,111 @@ let descriptionBig =  e.target.parentNode.parentNode.childNodes[3].childNodes[5]
     p.textContent = descriptionBig
    } else { p.textContent = description.value}
     p.innerHTML = p.innerHTML.replace(/\n/g, "<br>\n");
- 
 
- 
-   if(parentId1.value == ""){
-    parentId1.value = document.querySelector(".np1").textContent
-   }
+
+
+for (let i=1; i<= 2; i++){
+  if(document.querySelector(`.p${[i]}`).value == ""){
+    document.querySelector(`.p${[i]}`).value = document.querySelector(`.np${[i]}`).textContent
+     }
+} 
+
+for(let i=1; i<=15; i++){
+  if(document.querySelector(`.e${[i]}`).value == ""){
+    document.querySelector(`.e${[i]}`).value = document.querySelector(`.ne${[i]}`).textContent
+     }
+}
+
+for(let i=1; i<=3; i++){
+  if(document.querySelector(`.c${[i]}`).value == ""){
+    document.querySelector(`.c${[i]}`).value = document.querySelector(`.nc${[i]}`).textContent
+     }
+}
+
    if(parentSo1.value ==""){
     parentSo1.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].childNodes[1].getAttribute('data-id')
    }
 
-   if(parentId2.value == ""){
-    parentId2.value = document.querySelector(".np2").textContent
-   }
    if(parentSo2.value ==""){
     parentSo2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].childNodes[3].getAttribute('data-id')
    }
 
-   if(enfantId1.value == ""){
-    enfantId1.value = document.querySelector(".ne1").textContent
-   }
+  
    if(enfantSo1.value ==""){
     enfantSo1.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[1].getAttribute('data-id')
    }
 
-   if(enfantId2.value == ""){
-    enfantId2.value = document.querySelector(".ne2").textContent
-   }
    if(enfantSo2.value ==""){
     enfantSo2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[3].getAttribute('data-id')
    }
 
-   if(enfantId3.value == ""){
-    enfantId3.value = document.querySelector(".ne3").textContent
-   }
    if(enfantSo3.value ==""){
     enfantSo3.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[5].getAttribute('data-id')
    }
 
-   if(enfantId4.value == ""){
-    enfantId4.value = document.querySelector(".ne4").textContent
-   }
    if(enfantSo4.value ==""){
     enfantSo4.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[7].getAttribute('data-id')
    }
 
-   if(enfantId5.value == ""){
-    enfantId5.value = document.querySelector(".ne5").textContent
-   }
    if(enfantSo5.value ==""){
     enfantSo5.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[9].getAttribute('data-id')
    }
 
-   if(enfantId6.value == ""){
-    enfantId6.value = document.querySelector(".ne6").textContent
-   }
    if(enfantSo6.value ==""){
     enfantSo6.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[11].getAttribute('data-id')
    }
    
-   if(enfantId7.value == ""){
-    enfantId7.value = document.querySelector(".ne7").textContent
-   }
    if(enfantSo7.value ==""){
     enfantSo7.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[13].getAttribute('data-id')
    }
 
-   if(enfantId8.value == ""){
-    enfantId8.value = document.querySelector(".ne8").textContent
-   }
    if(enfantSo8.value ==""){
     enfantSo8.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[15].getAttribute('data-id')
    }
    
-   if(enfantId9.value == ""){
-    enfantId9.value = document.querySelector(".ne9").textContent
-   }
    if(enfantSo9.value ==""){
     enfantSo9.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[17].getAttribute('data-id')
    }
 
-   if(enfantId10.value == ""){
-    enfantId10.value = document.querySelector(".ne10").textContent
-   }
    if(enfantSo10.value ==""){
     enfantSo10.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[19].getAttribute('data-id')
    }
 
-   if(enfantId11.value == ""){
-    enfantId11.value = document.querySelector(".ne11").textContent
-   }
    if(enfantSo11.value ==""){
     enfantSo11.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[21].getAttribute('data-id')
    }
 
-   if(enfantId12.value == ""){
-    enfantId12.value = document.querySelector(".ne12").textContent
-   }
    if(enfantSo12.value ==""){
     enfantSo12.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[23].getAttribute('data-id')
    }
 
-   if(enfantId13.value == ""){
-    enfantId13.value = document.querySelector(".ne13").textContent
-   }
    if(enfantSo13.value ==""){
     enfantSo13.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[25].getAttribute('data-id')
    }
 
-   if(enfantId14.value == ""){
-    enfantId14.value = document.querySelector(".ne14").textContent
-   }
    if(enfantSo14.value ==""){
     enfantSo14.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[27].getAttribute('data-id')
    }
 
-   if(enfantId15.value == ""){
-    enfantId15.value = document.querySelector(".ne15").textContent
-   }
    if(enfantSo15.value ==""){
     enfantSo15.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[29].getAttribute('data-id')
    }
 
-   if(conjointId1.value == ""){
-    conjointId1.value = document.querySelector(".nc1").textContent
-   }
+
    if(conjointSo1.value ==""){
     conjointSo1.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[1].getAttribute('data-id')
    }
 
-   if(conjointId2.value == ""){
-    conjointId2.value = document.querySelector(".nc2").textContent
-   }
    if(conjointSo2.value ==""){
     conjointSo2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[3].getAttribute('data-id')
    }
 
-   if(conjointId3.value == ""){
-    conjointId3.value = document.querySelector(".nc3").textContent
-   }
    if(conjointSo3.value ==""){
     conjointSo3.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[5].getAttribute('data-id')
+   }
+
+   if(nomPhoto.value ==""){
+    nomPhoto.value = e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[3].childNodes[1].src
    }
 
 
@@ -263,6 +227,7 @@ let descriptionBig =  e.target.parentNode.parentNode.childNodes[3].childNodes[5]
       prenom: e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[5].textContent,
       naissance: e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[7].textContent,
       ville: e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[9].textContent,
+      photo : nomPhoto.value,
       description:  p.innerHTML,
       id: e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[1].textContent,
       parentId1: parentId1.value,

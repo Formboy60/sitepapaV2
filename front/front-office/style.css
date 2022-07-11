@@ -147,6 +147,12 @@ body {
     font-size: 1.3rem;
 }
 
+.bigLiens{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 1.5%;
+}
 
 .bigImg {
     width: 250px;

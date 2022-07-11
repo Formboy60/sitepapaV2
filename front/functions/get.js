@@ -334,60 +334,19 @@ document.querySelector("main").addEventListener("click", (e) => {
       if (document.querySelector('#parent2').textContent === " Mere : ") {
         document.querySelector('#parent2').style.display = 'none'
       }
-      if (document.querySelector('#enfant1').textContent === " Enfant 1 : ") {
-        document.querySelector('#enfant1').style.display = 'none'
+
+      for(let i = 1 ; i<=15 ; i++){
+        if (document.querySelector(`#enfant${[i]}`).textContent === ` Enfant ${[i]} : `) {
+          document.querySelector(`#enfant${[i]}`).style.display = 'none'
+        }
       }
-      if (document.querySelector('#enfant2').textContent === " Enfant 2 : ") {
-        document.querySelector('#enfant2').style.display = 'none'
+ 
+      for(let i = 1 ; i<=3 ; i++){
+        if (document.querySelector(`#conjoint${[i]}`).textContent === ` Conjoint ${[i]} : `) {
+          document.querySelector(`#conjoint${[i]}`).style.display = 'none'
+        }
       }
-      if (document.querySelector('#enfant3').textContent === " Enfant 3 : ") {
-        document.querySelector('#enfant3').style.display = 'none'
-      }
-      if (document.querySelector('#enfant4').textContent === " Enfant 4 : ") {
-        document.querySelector('#enfant4').style.display = 'none'
-      }
-      if (document.querySelector('#enfant5').textContent === " Enfant 5 : " ) {
-        document.querySelector('#enfant5').style.display = 'none'
-      }
-      if (document.querySelector('#enfant6').textContent === " Enfant 6 : ") {
-        document.querySelector('#enfant6').style.display = 'none'
-      }
-      if (document.querySelector('#enfant7').textContent === " Enfant 7 : ") {
-        document.querySelector('#enfant7').style.display = 'none'
-      } 
-      if (document.querySelector('#enfant8').textContent === " Enfant 8 : ") {
-        document.querySelector('#enfant8').style.display = 'none'
-      } 
-      if (document.querySelector('#enfant9').textContent === " Enfant 9 : ") {
-        document.querySelector('#enfant9').style.display = 'none'
-      }
-      if (document.querySelector('#enfant10').textContent === " Enfant 10 : ") {
-        document.querySelector('#enfant10').style.display = 'none'
-      }
-      if (document.querySelector('#enfant11').textContent === " Enfant 11 : ") {
-        document.querySelector('#enfant11').style.display = 'none'
-      }
-      if (document.querySelector('#enfant12').textContent === " Enfant 12 : ") {
-        document.querySelector('#enfant12').style.display = 'none'
-      }
-      if (document.querySelector('#enfant13').textContent === " Enfant 13 : ") {
-        document.querySelector('#enfant13').style.display = 'none'
-      }
-      if (document.querySelector('#enfant14').textContent === " Enfant 14 : ") {
-        document.querySelector('#enfant14').style.display = 'none'
-      }
-      if (document.querySelector('#enfant15').textContent === " Enfant 15 : ") {
-        document.querySelector('#enfant15').style.display = 'none'
-      }
-      if (document.querySelector('#conjoint1').textContent === " Conjoint 1 : ") {
-        document.querySelector('#conjoint1').style.display = 'none'
-      }
-      if (document.querySelector('#conjoint2').textContent === " Conjoint 2 : ") {
-        document.querySelector('#conjoint2').style.display = 'none'
-      }
-      if (document.querySelector('#conjoint3').textContent === " Conjoint 3 : ") {
-        document.querySelector('#conjoint3').style.display = 'none'
-      }
+
     }
   }
 

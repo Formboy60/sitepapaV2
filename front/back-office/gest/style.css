@@ -249,6 +249,8 @@ textarea {
 .bigLiens{
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 1.5%;
 }
 
 .retour {
