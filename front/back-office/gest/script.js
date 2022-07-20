@@ -1,15 +1,7 @@
-import {
-  isLogin
-} from "../login/fb/fb.js";
+import { isLogin, uploadFile, getToken } from "../login/fb/fb.js";
+import { get } from "../../functions/get.js";
+
 isLogin("../../front-office/index.html");
-import {
-  get
-} from "../../functions/get.js";
-import {
-  uploadFile
-} from "../login/fb/fb.js";
-
-
 get(true);
 
 let userId = document.querySelector(".uid");
@@ -75,8 +67,14 @@ function reload() {
 
 ///////// delete front ///////////
 
+
 document.querySelector("main").addEventListener("click", (e) => {
-  if (e.target.className === "sup") {
+  if(e.target.id === "sup1"){
+    document.querySelector('#sup1').style.display = 'none'
+    document.querySelector('#sup2').style.display = 'block'
+  }
+ 
+  if (e.target.id === "sup2") {
     loader.style.display = "flex"
     fetch(`http://localhost:3000/projet/${e.target.parentNode.parentNode.dataset.id}`, {
         method: "DELETE",
@@ -87,11 +85,15 @@ document.querySelector("main").addEventListener("click", (e) => {
       .then((res) => res.json())
       .then(
         (res) => {
+          getToken.then((token) => {
+            localStorage.setItem("token", token);
+          });
           loader.style.display = "none"
           document.querySelector(".result").textContent = res.message
           if(res.message == 'Veuillez vous connecter'){
             return
           }
+          window.scroll(0,0)
           setTimeout(reset, 2000)
           setTimeout(reload, 1000)
         }
@@ -121,101 +123,28 @@ for (let i=1; i<= 2; i++){
   if(document.querySelector(`.p${[i]}`).value == ""){
     document.querySelector(`.p${[i]}`).value = document.querySelector(`.np${[i]}`).textContent
      }
+  if(document.querySelector(`.n${[i]}`).value ==""){
+    document.querySelector(`.n${[i]}`).value = document.querySelector(`#parent${[i]}`).getAttribute('data-id')
+  }
 } 
 
 for(let i=1; i<=15; i++){
   if(document.querySelector(`.e${[i]}`).value == ""){
     document.querySelector(`.e${[i]}`).value = document.querySelector(`.ne${[i]}`).textContent
      }
+  if(document.querySelector(`.en${[i]}`).value ==""){
+    document.querySelector(`.en${[i]}`).value = document.querySelector(`#enfant${[i]}`).getAttribute('data-id')
+    }
 }
 
 for(let i=1; i<=3; i++){
   if(document.querySelector(`.c${[i]}`).value == ""){
     document.querySelector(`.c${[i]}`).value = document.querySelector(`.nc${[i]}`).textContent
      }
+  if(document.querySelector(`.cn${[i]}`).value ==""){
+    document.querySelector(`.cn${[i]}`).value = document.querySelector(`#conjoint${[i]}`).getAttribute('data-id')
+    }
 }
-
-   if(parentSo1.value ==""){
-    parentSo1.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].childNodes[1].getAttribute('data-id')
-   }
-
-   if(parentSo2.value ==""){
-    parentSo2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].childNodes[3].getAttribute('data-id')
-   }
-
-  
-   if(enfantSo1.value ==""){
-    enfantSo1.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[1].getAttribute('data-id')
-   }
-
-   if(enfantSo2.value ==""){
-    enfantSo2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[3].getAttribute('data-id')
-   }
-
-   if(enfantSo3.value ==""){
-    enfantSo3.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[5].getAttribute('data-id')
-   }
-
-   if(enfantSo4.value ==""){
-    enfantSo4.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[7].getAttribute('data-id')
-   }
-
-   if(enfantSo5.value ==""){
-    enfantSo5.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[9].getAttribute('data-id')
-   }
-
-   if(enfantSo6.value ==""){
-    enfantSo6.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[11].getAttribute('data-id')
-   }
-   
-   if(enfantSo7.value ==""){
-    enfantSo7.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[13].getAttribute('data-id')
-   }
-
-   if(enfantSo8.value ==""){
-    enfantSo8.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[15].getAttribute('data-id')
-   }
-   
-   if(enfantSo9.value ==""){
-    enfantSo9.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[17].getAttribute('data-id')
-   }
-
-   if(enfantSo10.value ==""){
-    enfantSo10.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[19].getAttribute('data-id')
-   }
-
-   if(enfantSo11.value ==""){
-    enfantSo11.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[21].getAttribute('data-id')
-   }
-
-   if(enfantSo12.value ==""){
-    enfantSo12.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[23].getAttribute('data-id')
-   }
-
-   if(enfantSo13.value ==""){
-    enfantSo13.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[25].getAttribute('data-id')
-   }
-
-   if(enfantSo14.value ==""){
-    enfantSo14.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[27].getAttribute('data-id')
-   }
-
-   if(enfantSo15.value ==""){
-    enfantSo15.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].childNodes[29].getAttribute('data-id')
-   }
-
-
-   if(conjointSo1.value ==""){
-    conjointSo1.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[1].getAttribute('data-id')
-   }
-
-   if(conjointSo2.value ==""){
-    conjointSo2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[3].getAttribute('data-id')
-   }
-
-   if(conjointSo3.value ==""){
-    conjointSo3.value = e.target.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[5].childNodes[5].getAttribute('data-id')
-   }
 
    if(nomPhoto.value ==""){
     nomPhoto.value = e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[3].childNodes[1].src
@@ -289,12 +218,16 @@ for(let i=1; i<=3; i++){
       .then((res) => res.json())
       .then(
         (res) => {
+          getToken.then((token) => {
+            localStorage.setItem("token", token);
+          });
           loader.style.display = "none"
           console.log(res)
           document.querySelector(".result").textContent = res.message
           if(res.message == 'Veuillez vous connecter'){
             return
           }
+          window.scroll(0,0)
           setTimeout(reset, 2000)
           setTimeout(reload, 1000)
         }
@@ -389,6 +322,9 @@ document.querySelector(".valide").addEventListener("click", () => {
     .then((res) => res.json())
     .then(
       (res) => {
+        getToken.then((token) => {
+          localStorage.setItem("token", token);
+        });
         loader.style.display = "none"
         document.querySelector(".result").textContent = res.message
         if(res.message == 'Veuillez vous connecter'){

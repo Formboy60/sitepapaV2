@@ -185,6 +185,13 @@ function pagination(data, admin) {
   searchBar.addEventListener("keyup", () => {
     let input = searchBar.value;
     input = input.toLowerCase();
+    if(searchBar2.value !=="" || searchBar3.value !==""){
+      const filter = test.filter((hub) => {
+        return hub.nom.toLowerCase().includes(input);
+      });
+      test = filter
+      display(filter, admin);
+    } else {
     let filter = data.filter((hub) => {
       return hub.nom.toLowerCase().includes(input);
     });
@@ -193,13 +200,13 @@ function pagination(data, admin) {
       display(pagination[0], admin);
     } else {
       display(filter, admin);
-    }
+    }}
   });
 
   searchBar2.addEventListener("keyup", () => {
     let input = searchBar2.value;
     input = input.toLowerCase();
-    if(searchBar.value !==""){
+    if(searchBar.value !=="" || searchBar3.value !==""){
       const filter = test.filter((hub) => {
         return hub.prenom.toLowerCase().includes(input);
       });
@@ -209,6 +216,7 @@ function pagination(data, admin) {
     const filter = data.filter((hub) => {
       return hub.prenom.toLowerCase().includes(input);
     });
+    test = filter
     if (searchBar.value == "" && searchBar2.value == "" && searchBar3.value == "") {
       display(pagination[0], admin);
     } else {
@@ -220,7 +228,7 @@ function pagination(data, admin) {
   searchBar3.addEventListener("keyup", () => {
     let input = searchBar3.value;
     input = input.toLowerCase();
-    if(searchBar2.value !==""){
+    if(searchBar.value !=="" || searchBar2.value !==""){
       const filter = test.filter((hub) => {
         return hub.ville.toLowerCase().includes(input);
       });
@@ -229,13 +237,21 @@ function pagination(data, admin) {
     } else{
     const filter = data.filter((hub) => {
       return hub.ville.toLowerCase().includes(input);
-    });
+    })
+    test = filter
     if (searchBar.value == "" && searchBar2.value == "" && searchBar3.value == "") {
       display(pagination[0], admin);
     } else {
       display(filter, admin);
     }}
   });
+
+  document.querySelector('.erase').addEventListener('click', () =>{
+    document.querySelector('.nom').value = ""
+    document.querySelector('.prenom').value = ""
+    document.querySelector('.ville').value = ""
+    display(pagination[0])
+  })
 
 }
 
@@ -322,7 +338,8 @@ document.querySelector("main").addEventListener("click", (e) => {
                         </div>
                       </div>
                       <div class="but">
-                        <button class="sup">supprimer</button>
+                        <button class="sup sup1" id='sup1'>supprimer</button>
+                        <button class="sup sup2" id='sup2'>Confirmer la suppression ?</button>
                         <button class="edit">editer</button>
                       </div>
                       <button class="retour">retour</button>
@@ -411,9 +428,12 @@ document.querySelector("main").addEventListener("click", (e) => {
             <img class='bigImg' src="${perso[0].photo}" alt='photo personne'/>
           </div>
         </div>
-        <div>
+        <div class="bigLiens">
+          <div class="bigParents">
             <p id="parent1" class="get a" data-id="${perso[0].parentSo1}"> Pere : <span class="np1 a" data-id="${perso[0].parentSo1}">${perso[0].parentId1}<span></p>
             <p id="parent2" class="get a" data-id="${perso[0].parentSo2}"> Mere : <span class="np2 a" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
+          </div>
+          <div class="bigEnfants">
             <p id="enfant1" class="get a" data-id="${perso[0].enfantSo1}"> Enfant 1 : <span class="ne1 a" data-id="${perso[0].enfantSo1}">${perso[0].enfantId1}<span></p>
             <p id="enfant2" class="get a" data-id="${perso[0].enfantSo2}"> Enfant 2 : <span class="ne2 a" data-id="${perso[0].enfantSo2}">${perso[0].enfantId2}<span></p>
             <p id="enfant3" class="get a" data-id="${perso[0].enfantSo3}"> Enfant 3 : <span class="ne3 a"data-id="${perso[0].enfantSo3}">${perso[0].enfantId3}<span></p>
@@ -429,43 +449,42 @@ document.querySelector("main").addEventListener("click", (e) => {
             <p id="enfant13" class="get a" data-id="${perso[0].enfantSo13}"> Enfant 13 : <span class="ne13 a" data-id="${perso[0].enfantSo13}">${perso[0].enfantId13}<span></p>
             <p id="enfant14" class="get a" data-id="${perso[0].enfantSo14}"> Enfant 14 : <span class="ne14 a" data-id="${perso[0].enfantSo14}">${perso[0].enfantId14}<span></p>
             <p id="enfant15" class="get a" data-id="${perso[0].enfantSo15}"> Enfant 15 : <span class="ne15 a" data-id="${perso[0].enfantSo15}">${perso[0].enfantId15}<span></p>
-            <p id="conjoint1" class="get a" data-id="${perso[0].conjointSo1}"> conjoint 1 : <span class="nc1 a" data-id="${perso[0].conjointSo1}">${perso[0].conjointId1}<span></p>
-            <p id="conjoint2" class="get a" data-id="${perso[0].conjointSo2}"> conjoint 2 : <span class="nc2 a" data-id="${perso[0].conjointSo2}">${perso[0].conjointId2}<span></p>
-            <p id="conjoint3" class="get a" data-id="${perso[0].conjointSo3}"> conjoint 3 : <span class="nc3 a" data-id="${perso[0].conjointSo3}">${perso[0].conjointId3}<span></p>
+          </div>
+          <div class="bigConjoints">
+            <p id="conjoint1" class="get a" data-id="${perso[0].conjointSo1}"> Conjoint 1 : <span class="nc1 a" data-id="${perso[0].conjointSo1}">${perso[0].conjointId1}<span></p>
+            <p id="conjoint2" class="get a" data-id="${perso[0].conjointSo2}"> Conjoint 2 : <span class="nc2 a" data-id="${perso[0].conjointSo2}">${perso[0].conjointId2}<span></p>
+            <p id="conjoint3" class="get a" data-id="${perso[0].conjointSo3}"> Conjoint 3 : <span class="nc3 a" data-id="${perso[0].conjointSo3}">${perso[0].conjointId3}<span></p>
+          </div>
+        </div>
         <div class='bas'>
         <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
         </div>
       </div>
       <div class="but">
         <button class="sup">supprimer</button>
+        <button class="sup sup2">Confirmer la suppression</button>
         <button class="edit">editer</button>
       </div>
       <button class="retour">retour</button>
     </div> `;
 
-      if (document.querySelector('#parent1').textContent === " Pere : ") {
+        if (document.querySelector('#parent1').textContent === " Pere : ") {
         document.querySelector('#parent1').style.display = 'none'
       }
       if (document.querySelector('#parent2').textContent === " Mere : ") {
         document.querySelector('#parent2').style.display = 'none'
       }
-      if (document.querySelector('#enfant1').textContent === " Enfant 1 : ") {
-        document.querySelector('#enfant1').style.display = 'none'
+
+      for(let i = 1 ; i<=15 ; i++){
+        if (document.querySelector(`#enfant${[i]}`).textContent === ` Enfant ${[i]} : `) {
+          document.querySelector(`#enfant${[i]}`).style.display = 'none'
+        }
       }
-      if (document.querySelector('#enfant2').textContent === " Enfant 2 : ") {
-        document.querySelector('#enfant2').style.display = 'none'
-      }
-      if (document.querySelector('#enfant3').textContent === " Enfant 3 : ") {
-        document.querySelector('#enfant3').style.display = 'none'
-      }
-      if (document.querySelector('#enfant4').textContent === " Enfant 4 : ") {
-        document.querySelector('#enfant4').style.display = 'none'
-      }
-      if (document.querySelector('#enfant5').textContent === " Enfant 5 : ") {
-        document.querySelector('#enfant5').style.display = 'none'
-      }
-      if (document.querySelector('#enfant6').textContent === " Enfant 6 : ") {
-        document.querySelector('#enfant6').style.display = 'none'
+ 
+      for(let i = 1 ; i<=3 ; i++){
+        if (document.querySelector(`#conjoint${[i]}`).textContent === ` Conjoint ${[i]} : `) {
+          document.querySelector(`#conjoint${[i]}`).style.display = 'none'
+        }
       }
     }
   }
@@ -482,3 +501,4 @@ document.querySelector('body').addEventListener("click", (e) => {
     console.log(e.target.getAttribute('data-id'))
   }
 })
+

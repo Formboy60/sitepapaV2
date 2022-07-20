@@ -149,6 +149,14 @@ textarea {
     align-self: center;
 }
 
+.sup1{
+    display: block;
+}
+
+.sup2{
+    display: none;
+}
+
 /*////// CSS GET //////*/
 
 .fiches {
