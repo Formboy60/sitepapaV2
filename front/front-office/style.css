@@ -10,6 +10,14 @@
     --border: 1px black solid;
 }
 
+a{
+    color: white;
+}
+
+.a:hover{
+    color: rgba(111, 24, 111, 0.761);
+}
+
 /*/////// CSS header //////*/
 
 header {
@@ -203,6 +211,13 @@ body {
 footer {
     font-size: 1.7rem;
     margin: 2% 0 2% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ml{
+    margin-top: 2%;
 }
 
 /* /////// MEDIA QUERY //////*/

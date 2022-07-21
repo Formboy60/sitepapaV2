@@ -1,0 +1,35 @@
+header {
+    display: flex;
+    justify-content: center;
+    height: 12vh;
+    align-items: center;
+    background-image: url(../../asset/Bandeau\ 10.jpg);
+}
+
+.title {
+    font-size: 1.3rem;
+    backdrop-filter: blur(8px);
+    text-decoration: none;
+    justify-content: center;
+    color: rgb(255, 254, 254);
+    grid-column: 2;
+    display: flex;
+    text-shadow: 1px 1px 0 black;
+}
+
+body {
+    background-color: #816b54;
+}
+
+footer {
+    text-align: center;
+   margin-top: 2%;
+}
+
+.back {
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.3rem;
+    color: white;
+    text-shadow: 1px 1px 0 black;
+}
