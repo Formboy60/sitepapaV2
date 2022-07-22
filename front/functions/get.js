@@ -36,7 +36,7 @@ function display(data, admin) {
           <p id="ville" contenteditable=${admin}>${art.ville}</p>
         </div>
         <div class='img'>
-          <img class='minImg' src="${art.photo}" alt='photo personne'/>
+          <img class='minImg' src="${art.photo}" alt='photo ${art.nom} ${art.prenom}'/>
         </div>
       </div>
     <button class="detail">Détails</button>
@@ -302,7 +302,7 @@ document.querySelector("main").addEventListener("click", (e) => {
                             
                           </div>
                           <div class='imgBig'>
-                            <img class='bigImg' src="${perso[0].photo}" alt='photo personne'/>
+                            <img class='bigImg' src="${perso[0].photo}" alt='photo ${art.nom} ${art.prenom}'/>
                           </div>
                         </div>
                         <div class="bigLiens">
@@ -425,7 +425,7 @@ document.querySelector("main").addEventListener("click", (e) => {
             
           </div>
           <div class='imgBig'>
-            <img class='bigImg' src="${perso[0].photo}" alt='photo personne'/>
+            <img class='bigImg' src="${perso[0].photo}" alt='photo ${art.nom} ${art.prenom}'/>
           </div>
         </div>
         <div class="bigLiens">
