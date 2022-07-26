@@ -1,7 +1,7 @@
 import { isLogin, uploadFile, getToken } from "../login/fb/fb.js";
 import { get } from "../../functions/get.js";
 
-isLogin("../../front-office/index.html");
+isLogin("../../index.html");
 get(true);
 
 let userId = document.querySelector(".uid");
@@ -76,7 +76,7 @@ document.querySelector("main").addEventListener("click", (e) => {
  
   if (e.target.id === "sup2") {
     loader.style.display = "flex"
-    fetch(`http://localhost:3000/projet/${e.target.parentNode.parentNode.dataset.id}`, {
+    fetch(`https://murmuring-peak-73024.herokuapp.com/projet/${e.target.parentNode.parentNode.dataset.id}`, {
         method: "DELETE",
         headers: {
           Authorization: `${localStorage.getItem("token")}`,
@@ -202,7 +202,7 @@ for(let i=1; i<=3; i++){
     };
 
     fetch(
-        `http://localhost:3000/projet/${e.target.parentNode.parentNode.dataset.id}`,
+        `https://murmuring-peak-73024.herokuapp.com/projet/${e.target.parentNode.parentNode.dataset.id}`,
 
         {
           method: "PUT",
@@ -309,7 +309,7 @@ document.querySelector(".valide").addEventListener("click", () => {
 
 
 
-  fetch("http://localhost:3000/projet/arbres", {
+  fetch("https://murmuring-peak-73024.herokuapp.com//projet/arbres", {
       method: "POST",
       headers: {
         Accept: "application/json",

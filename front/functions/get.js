@@ -5,7 +5,7 @@ let data = [];
  * @param admin - boolean
  */
 export function get(admin) {
-  fetch("http://localhost:3000/projet")
+  fetch("https://murmuring-peak-73024.herokuapp.com/projet")
     .then((response) => response.json())
     .then((res) => {
       data = res;
@@ -269,7 +269,7 @@ document.querySelector("main").addEventListener("click", (e) => {
 
     /* Fetching data from the server and then it is calling the `affiche` function. */
     fetch(
-        `http://localhost:3000/projet/${e.target.parentNode.getAttribute("data-id")}`
+        `https://murmuring-peak-73024.herokuapp.com/projet/${e.target.parentNode.getAttribute("data-id")}`
       )
       .then((response) => response.json())
       .then((res) => {
@@ -385,7 +385,7 @@ document.querySelector("main").addEventListener("click", (e) => {
     ).innerHTML = ""
 
     fetch(
-        `http://localhost:3000/projet/parent/${e.target.getAttribute("data-id")}`
+        `https://murmuring-peak-73024.herokuapp.com/projet/parent/${e.target.getAttribute("data-id")}`
       )
       .then((response) => response.json())
       .then((res) => {
