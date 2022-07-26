@@ -8,10 +8,21 @@ const {
   getAuth
 } = require("firebase-admin/auth");
 
-const serviceAccount = require("../firebase/site-papa-408d2-firebase-adminsdk-8ftw9-07cba9bfb9.json");
+// const serviceAccount = require("../firebase/site-papa-408d2-firebase-adminsdk-8ftw9-07cba9bfb9.json");
 
 initializeApp({
-  credential: cert(serviceAccount),
+  credential: cert({
+    "type": "service_account",
+  "project_id": `${process.env.PROJETID}`,
+  "private_key_id": `${process.env.IDPRIVATEKEY}`,
+  "private_key": `${process.env.PRIVATEKEY.replace(/\\n/g, '\n')}`,
+  "client_email": `${process.env.CLIENTMAIL}`,
+  "client_id": `${process.env.CLIENTID}`,
+  "auth_uri": `${process.env.AUTHURI}`,
+  "token_uri": `${process.env.TOKENURI}`,
+  "auth_provider_x509_cert_url": `${process.env.PROVIDER}`,
+  "client_x509_cert_url": `${process.env.CLIENT}`
+  }),
 });
 
 

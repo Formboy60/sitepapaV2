@@ -302,7 +302,7 @@ document.querySelector("main").addEventListener("click", (e) => {
                             
                           </div>
                           <div class='imgBig'>
-                            <img class='bigImg' src="${perso[0].photo}" alt='photo ${art.nom} ${art.prenom}'/>
+                            <img class='bigImg' src="${perso[0].photo}" alt='photo ${perso[0].nom} ${perso[0].prenom}'/>
                           </div>
                         </div>
                         <div class="bigLiens">
@@ -425,7 +425,7 @@ document.querySelector("main").addEventListener("click", (e) => {
             
           </div>
           <div class='imgBig'>
-            <img class='bigImg' src="${perso[0].photo}" alt='photo ${art.nom} ${art.prenom}'/>
+            <img class='bigImg' src="${perso[0].photo}" alt='photo ${perso[0].nom} ${perso[0].prenom}'/>
           </div>
         </div>
         <div class="bigLiens">
