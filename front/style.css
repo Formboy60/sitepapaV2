@@ -85,6 +85,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     gap: 3%;
+    margin-bottom: 1%;
 }
 
 .sup,
@@ -216,6 +217,10 @@ footer {
     align-items: center;
 }
 
+.foot{
+    margin-bottom: 1%;
+}
+
 .ml{
     margin-top: 2%;
 }
@@ -227,6 +232,10 @@ footer {
 
     .info {
         width: 275px;
+    }
+
+    .fiches{
+        margin-bottom: 2%;
     }
 }
 
@@ -240,14 +249,26 @@ footer {
 
     .fiches {
         grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
     }
 
     .pgn {
-        margin-top: 20%;
+        margin-top: 22%;
     }
 
     .foot {
         font-size: 1.3rem;
+    }
+
+}
+
+/* //////// 790px ///////*/
+@media all and (max-width: 790px) {
+
+    .searchBar {
+        flex-direction: column;
+        align-items: center;
+        gap: 2%;
     }
 
 }
@@ -264,23 +285,20 @@ footer {
         font-size: 1rem;
     }
 
-    .searchBar {
-        flex-direction: column;
-        align-items: center;
-        gap: 2%;
-    }
+    
 
     .fiches {
         grid-template-columns: repeat(1, 1fr);
     }
 
     .pgn {
-        margin-top: 110%;
+        margin-top: 125%;
     }
 
-    .foot {
+    .foot, .gen {
         font-size: 1.3rem;
         text-align: center;
+        overflow: auto;
     }
 
 }
@@ -289,7 +307,7 @@ footer {
 @media all and (max-width: 530px) {
 
     .pgn {
-        margin-top: 120%;
+        margin-top: 135%;
     }
 
     .haut{
@@ -299,11 +317,20 @@ footer {
 
 }
 
+/* //////// 490px ///////*/
+@media all and (max-width: 530px) {
+
+    .pgn {
+        margin-top: 145%;
+    }
+
+}
+
 /* //////// 460px ///////*/
 @media all and (max-width: 460px) {
 
     .pgn {
-        margin-top: 130%;
+        margin-top: 155%;
     }
 
     .title {
@@ -316,7 +343,7 @@ footer {
 @media all and (max-width: 420px) {
 
     .pgn {
-        margin-top: 140%;
+        margin-top: 165%;
     }
 
 }
@@ -325,7 +352,7 @@ footer {
 @media all and (max-width: 390px) {
 
     .pgn {
-        margin-top: 150%;
+        margin-top: 175%;
     }
 
 }

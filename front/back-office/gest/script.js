@@ -309,7 +309,7 @@ document.querySelector(".valide").addEventListener("click", () => {
 
 
 
-  fetch("https://murmuring-peak-73024.herokuapp.com//projet/arbres", {
+  fetch("https://murmuring-peak-73024.herokuapp.com/projet/arbres", {
       method: "POST",
       headers: {
         Accept: "application/json",
