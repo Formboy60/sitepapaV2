@@ -35,7 +35,7 @@ app.post('/projet/arbres', isUser, (req, res) => {
 
 /* A GET request to the /projet/ route. It is using the ficheModel to find all the documents in the
 database. It is then sending the response to the client. */
-app.get("/projet/", async (request, response) => {
+app.get("/projet", async (request, response) => {
   const fiche = await ficheModel.find().sort({id:1});
 
   try {
