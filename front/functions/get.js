@@ -306,10 +306,15 @@ document.querySelector("main").addEventListener("click", (e) => {
                           </div>
                         </div>
                         <div class="bigLiens">
-                          <div class="bigParents">
-                            <p id="parent1" class="get a" data-id="${perso[0].parentSo1}"> Pere : <span class="np1 a" data-id="${perso[0].parentSo1}">${perso[0].parentId1}<span></p>
-                            <p id="parent2" class="get a" data-id="${perso[0].parentSo2}"> Mere : <span class="np2 a" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
-                          </div>
+                        <div class="bigParents">
+                        <p id="parent1" class="get a" data-id="${perso[0].parentSo1}"> Pere : <span class="np1 a" data-id="${perso[0].parentSo1}">${perso[0].parentId1}<span></p>
+                        <p id="parent2" class="get a" data-id="${perso[0].parentSo2}"> Mere : <span class="np2 a" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
+                        </div>
+                        <div class="bigConjoints">
+                          <p id="conjoint1" class="get a" data-id="${perso[0].conjointSo1}"> Conjoint 1 : <span class="nc1 a" data-id="${perso[0].conjointSo1}">${perso[0].conjointId1}<span></p>
+                          <p id="conjoint2" class="get a" data-id="${perso[0].conjointSo2}"> Conjoint 2 : <span class="nc2 a" data-id="${perso[0].conjointSo2}">${perso[0].conjointId2}<span></p>
+                          <p id="conjoint3" class="get a" data-id="${perso[0].conjointSo3}"> Conjoint 3 : <span class="nc3 a" data-id="${perso[0].conjointSo3}">${perso[0].conjointId3}<span></p>
+                        </div>
                           <div class="bigEnfants">
                             <p id="enfant1" class="get a" data-id="${perso[0].enfantSo1}"> Enfant 1 : <span class="ne1 a" data-id="${perso[0].enfantSo1}">${perso[0].enfantId1}<span></p>
                             <p id="enfant2" class="get a" data-id="${perso[0].enfantSo2}"> Enfant 2 : <span class="ne2 a" data-id="${perso[0].enfantSo2}">${perso[0].enfantId2}<span></p>
@@ -326,11 +331,6 @@ document.querySelector("main").addEventListener("click", (e) => {
                             <p id="enfant13" class="get a" data-id="${perso[0].enfantSo13}"> Enfant 13 : <span class="ne13 a" data-id="${perso[0].enfantSo13}">${perso[0].enfantId13}<span></p>
                             <p id="enfant14" class="get a" data-id="${perso[0].enfantSo14}"> Enfant 14 : <span class="ne14 a" data-id="${perso[0].enfantSo14}">${perso[0].enfantId14}<span></p>
                             <p id="enfant15" class="get a" data-id="${perso[0].enfantSo15}"> Enfant 15 : <span class="ne15 a" data-id="${perso[0].enfantSo15}">${perso[0].enfantId15}<span></p>
-                          </div>
-                          <div class="bigConjoints">
-                            <p id="conjoint1" class="get a" data-id="${perso[0].conjointSo1}"> Conjoint 1 : <span class="nc1 a" data-id="${perso[0].conjointSo1}">${perso[0].conjointId1}<span></p>
-                            <p id="conjoint2" class="get a" data-id="${perso[0].conjointSo2}"> Conjoint 2 : <span class="nc2 a" data-id="${perso[0].conjointSo2}">${perso[0].conjointId2}<span></p>
-                            <p id="conjoint3" class="get a" data-id="${perso[0].conjointSo3}"> Conjoint 3 : <span class="nc3 a" data-id="${perso[0].conjointSo3}">${perso[0].conjointId3}<span></p>
                           </div>
                         </div>
                         <div class='bas'>
@@ -433,6 +433,11 @@ document.querySelector("main").addEventListener("click", (e) => {
             <p id="parent1" class="get a" data-id="${perso[0].parentSo1}"> Pere : <span class="np1 a" data-id="${perso[0].parentSo1}">${perso[0].parentId1}<span></p>
             <p id="parent2" class="get a" data-id="${perso[0].parentSo2}"> Mere : <span class="np2 a" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
           </div>
+          <div class="bigConjoints">
+            <p id="conjoint1" class="get a" data-id="${perso[0].conjointSo1}"> Conjoint 1 : <span class="nc1 a" data-id="${perso[0].conjointSo1}">${perso[0].conjointId1}<span></p>
+            <p id="conjoint2" class="get a" data-id="${perso[0].conjointSo2}"> Conjoint 2 : <span class="nc2 a" data-id="${perso[0].conjointSo2}">${perso[0].conjointId2}<span></p>
+            <p id="conjoint3" class="get a" data-id="${perso[0].conjointSo3}"> Conjoint 3 : <span class="nc3 a" data-id="${perso[0].conjointSo3}">${perso[0].conjointId3}<span></p>
+          </div>
           <div class="bigEnfants">
             <p id="enfant1" class="get a" data-id="${perso[0].enfantSo1}"> Enfant 1 : <span class="ne1 a" data-id="${perso[0].enfantSo1}">${perso[0].enfantId1}<span></p>
             <p id="enfant2" class="get a" data-id="${perso[0].enfantSo2}"> Enfant 2 : <span class="ne2 a" data-id="${perso[0].enfantSo2}">${perso[0].enfantId2}<span></p>
@@ -449,11 +454,6 @@ document.querySelector("main").addEventListener("click", (e) => {
             <p id="enfant13" class="get a" data-id="${perso[0].enfantSo13}"> Enfant 13 : <span class="ne13 a" data-id="${perso[0].enfantSo13}">${perso[0].enfantId13}<span></p>
             <p id="enfant14" class="get a" data-id="${perso[0].enfantSo14}"> Enfant 14 : <span class="ne14 a" data-id="${perso[0].enfantSo14}">${perso[0].enfantId14}<span></p>
             <p id="enfant15" class="get a" data-id="${perso[0].enfantSo15}"> Enfant 15 : <span class="ne15 a" data-id="${perso[0].enfantSo15}">${perso[0].enfantId15}<span></p>
-          </div>
-          <div class="bigConjoints">
-            <p id="conjoint1" class="get a" data-id="${perso[0].conjointSo1}"> Conjoint 1 : <span class="nc1 a" data-id="${perso[0].conjointSo1}">${perso[0].conjointId1}<span></p>
-            <p id="conjoint2" class="get a" data-id="${perso[0].conjointSo2}"> Conjoint 2 : <span class="nc2 a" data-id="${perso[0].conjointSo2}">${perso[0].conjointId2}<span></p>
-            <p id="conjoint3" class="get a" data-id="${perso[0].conjointSo3}"> Conjoint 3 : <span class="nc3 a" data-id="${perso[0].conjointSo3}">${perso[0].conjointId3}<span></p>
           </div>
         </div>
         <div class='bas'>

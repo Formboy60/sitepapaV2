@@ -18,13 +18,6 @@ function erase() {
 
 
 function sendMail(params) {
-    // const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-    
-    // if(reg.test(document.querySelector('#mail')).value){
-    //     // document.querySelector('.result').innerHTML = "Veuillez rentrer une adresse mail correcte"
-    //     // return
-    //     console.log('pouet');
-    // }
 
     load()
     let tempsParams = {
@@ -32,7 +25,7 @@ function sendMail(params) {
         message: document.getElementById('text').value,
         reply_to: document.getElementById('mail').value
     }
-    emailjs.send("service_ts0ggjs", "template_022787h", tempsParams, 'VuS2U-jyV4FhtnHsB')
+    emailjs.send("service_oit7ngi", "template_brld9db", tempsParams, 'VuS2U-jyV4FhtnHsB')
         .then(() => {
             unload()
             reset()
@@ -46,10 +39,3 @@ function sendMail(params) {
         })
 }
 
-// document.querySelector('.body').addEventListener('click', ()=>{
-//     if(reg.test(document.querySelector('#mail')).value){
-//         // document.querySelector('.result').innerHTML = "Veuillez rentrer une adresse mail correcte"
-//         // return
-//         console.log('pouet');
-//     }
-// })
