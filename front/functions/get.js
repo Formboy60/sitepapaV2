@@ -307,8 +307,8 @@ document.querySelector("main").addEventListener("click", (e) => {
                         </div>
                         <div class="bigLiens">
                         <div class="bigParents">
-                        <p id="parent1" class="get a" data-id="${perso[0].parentSo1}"> Pere : <span class="np1 a" data-id="${perso[0].parentSo1}">${perso[0].parentId1}<span></p>
-                        <p id="parent2" class="get a" data-id="${perso[0].parentSo2}"> Mere : <span class="np2 a" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
+                        <p id="parent1" class="get a" data-id="${perso[0].parentSo1}"> Père : <span class="np1 a" data-id="${perso[0].parentSo1}">${perso[0].parentId1}<span></p>
+                        <p id="parent2" class="get a" data-id="${perso[0].parentSo2}"> Mère : <span class="np2 a" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
                         </div>
                         <div class="bigConjoints">
                           <p id="conjoint1" class="get a" data-id="${perso[0].conjointSo1}"> Conjoint 1 : <span class="nc1 a" data-id="${perso[0].conjointSo1}">${perso[0].conjointId1}<span></p>
@@ -345,10 +345,10 @@ document.querySelector("main").addEventListener("click", (e) => {
                       <button class="retour">retour</button>
                     </div> `;
 
-      if (document.querySelector('#parent1').textContent === " Pere : ") {
+      if (document.querySelector('#parent1').textContent === " Père : ") {
         document.querySelector('#parent1').style.display = 'none'
       }
-      if (document.querySelector('#parent2').textContent === " Mere : ") {
+      if (document.querySelector('#parent2').textContent === " Mère : ") {
         document.querySelector('#parent2').style.display = 'none'
       }
 
@@ -390,11 +390,11 @@ document.querySelector("main").addEventListener("click", (e) => {
       .then((response) => response.json())
       .then((res) => {
         perso = res;
-        
+        console.log(res);
         if (localStorage.getItem('token')) {
           return affiche(perso, true);
         }
-      
+        affiche(perso)
         
       });
       
@@ -430,8 +430,8 @@ document.querySelector("main").addEventListener("click", (e) => {
         </div>
         <div class="bigLiens">
           <div class="bigParents">
-            <p id="parent1" class="get a" data-id="${perso[0].parentSo1}"> Pere : <span class="np1 a" data-id="${perso[0].parentSo1}">${perso[0].parentId1}<span></p>
-            <p id="parent2" class="get a" data-id="${perso[0].parentSo2}"> Mere : <span class="np2 a" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
+            <p id="parent1" class="get a" data-id="${perso[0].parentSo1}"> Père : <span class="np1 a" data-id="${perso[0].parentSo1}">${perso[0].parentId1}<span></p>
+            <p id="parent2" class="get a" data-id="${perso[0].parentSo2}"> Mère : <span class="np2 a" data-id="${perso[0].parentSo2}">${perso[0].parentId2}<span></p>
           </div>
           <div class="bigConjoints">
             <p id="conjoint1" class="get a" data-id="${perso[0].conjointSo1}"> Conjoint 1 : <span class="nc1 a" data-id="${perso[0].conjointSo1}">${perso[0].conjointId1}<span></p>
@@ -468,10 +468,10 @@ document.querySelector("main").addEventListener("click", (e) => {
       <button class="retour">retour</button>
     </div> `;
 
-        if (document.querySelector('#parent1').textContent === " Pere : ") {
+        if (document.querySelector('#parent1').textContent === " Père : ") {
         document.querySelector('#parent1').style.display = 'none'
       }
-      if (document.querySelector('#parent2').textContent === " Mere : ") {
+      if (document.querySelector('#parent2').textContent === " Mère : ") {
         document.querySelector('#parent2').style.display = 'none'
       }
 
@@ -496,9 +496,9 @@ document.querySelector("main").addEventListener("click", (e) => {
 })
 
 
-document.querySelector('body').addEventListener("click", (e) => {
-  if (e.target.tagName.toLowerCase() === 'span') {
-    console.log(e.target.getAttribute('data-id'))
-  }
-})
+// document.querySelector('body').addEventListener("click", (e) => {
+//   if (e.target.tagName.toLowerCase() === 'span') {
+//     console.log(e.target.getAttribute('data-id'))
+//   }
+// })
 
