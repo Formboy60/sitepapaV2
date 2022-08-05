@@ -152,9 +152,9 @@ for(let i=1; i<=3; i++){
     nomPhoto.value = e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[3].childNodes[1].src
    }
 
-  //  if(nomPhoto2.value ==""){
-  //   nomPhoto2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[5].childNodes[3].childNodes[1].src
-  //  }
+   if(nomPhoto2.value ==""){
+    nomPhoto2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[5].childNodes[3].childNodes[1].src
+   }
 
 
     const newArticle = {

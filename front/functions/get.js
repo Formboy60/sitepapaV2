@@ -337,6 +337,7 @@ document.querySelector("main").addEventListener("click", (e) => {
                           <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
                           <div class='arbre'>
                             <img class='mini' src="${perso[0].photo2}" alt='arbre de ${perso[0].nom} ${perso[0].prenom}'/>
+                            <p class='minihover'>Passez le pointeur pour agrandir l'image</p>
                           </div>
                         </div>
                       </div>

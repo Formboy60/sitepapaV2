@@ -217,8 +217,18 @@ body {
 
 .arbre{
     display: flex;
-    margin-top: 2%;
+    flex-direction: column;
+    margin-bottom: 1%;
     justify-content: center;
+    align-items: center;
+}
+
+.mini{
+    max-height: 15rem;
+}
+
+.mini:hover{
+    transform:scale(3.25);
 }
 
 .retour {

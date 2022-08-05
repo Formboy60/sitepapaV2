@@ -149,8 +149,11 @@ textarea {
     align-self: center;
 }
 
+
+
 .sup1{
     display: block;
+    margin-bottom: 1%;
 }
 
 .sup2{
@@ -208,6 +211,8 @@ textarea {
     flex-direction: column;
     align-items: center;
     padding-top: 2%;
+    margin-top: 1%;
+    margin-bottom: 2%;
 }
 
 /*////// CSS get by ID ///////*/
@@ -257,8 +262,8 @@ textarea {
 
 .arbre{
     display: flex;
-    margin-top: 2%;
     justify-content: center;
+    margin-bottom: 1%;
 }
 
 .bigLiens{
