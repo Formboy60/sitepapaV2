@@ -148,6 +148,9 @@ const ficheSchema = new mongoose.Schema({
   conjointSo3:{
     type: String
   },
+  photo2:{
+    type: String
+  }
 });
 
 

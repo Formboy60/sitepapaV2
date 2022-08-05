@@ -209,9 +209,16 @@ body {
 
 .bas {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-top: 3%;
     font-size: 1.1rem;
+}
+
+.arbre{
+    display: flex;
+    margin-top: 2%;
+    justify-content: center;
 }
 
 .retour {

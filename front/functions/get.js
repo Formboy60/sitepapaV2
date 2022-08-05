@@ -334,7 +334,10 @@ document.querySelector("main").addEventListener("click", (e) => {
                           </div>
                         </div>
                         <div class='bas'>
-                        <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
+                          <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
+                          <div class='arbre'>
+                            <img class='mini' src="${perso[0].photo2}" alt='arbre de ${perso[0].nom} ${perso[0].prenom}'/>
+                          </div>
                         </div>
                       </div>
                       <div class="but">
@@ -457,7 +460,10 @@ document.querySelector("main").addEventListener("click", (e) => {
           </div>
         </div>
         <div class='bas'>
-        <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
+          <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
+            <div class='arbre'>
+              <img class='mini' src="${perso[0].photo2}" alt='arbre de ${perso[0].nom} ${perso[0].prenom}'/>
+            </div>
         </div>
       </div>
       <div class="but">

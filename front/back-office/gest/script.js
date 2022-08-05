@@ -12,6 +12,8 @@ let villeNaissance = document.querySelector(".villeNaissance");
 let description = document.querySelector(".description");
 let nomPhoto = document.querySelector(".photo");
 let fichier = document.querySelector(".upload");
+let nomPhoto2 = document.querySelector(".photo2");
+let fichier2 = document.querySelector(".upload2");
 let parentId1 = document.querySelector('.p1')
 let parentSo1 = document.querySelector('.n1')
 let parentId2 = document.querySelector('.p2')
@@ -106,7 +108,7 @@ document.querySelector("main").addEventListener("click", (e) => {
   } else if (e.target.className === "edit") {
     //////////// put front /////////////
 
-    
+  
 
 let descriptionBig =  e.target.parentNode.parentNode.childNodes[3].childNodes[5].childNodes[1].textContent
 
@@ -150,6 +152,10 @@ for(let i=1; i<=3; i++){
     nomPhoto.value = e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[3].childNodes[1].src
    }
 
+  //  if(nomPhoto2.value ==""){
+  //   nomPhoto2.value = e.target.parentNode.parentNode.childNodes[3].childNodes[5].childNodes[3].childNodes[1].src
+  //  }
+
 
     const newArticle = {
       nom: e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[3].textContent,
@@ -157,6 +163,7 @@ for(let i=1; i<=3; i++){
       naissance: e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[7].textContent,
       ville: e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[9].textContent,
       photo : nomPhoto.value,
+      photo2 : nomPhoto2.value,
       description:  p.innerHTML,
       id: e.target.parentNode.parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[1].textContent,
       parentId1: parentId1.value,
@@ -249,6 +256,10 @@ fichier.addEventListener("change", () => {
   uploadFile(fichier.files[0], fichier.files[0].name, nomPhoto);
 });
 
+fichier2.addEventListener("change", () => {
+  uploadFile(fichier2.files[0], fichier2.files[0].name, nomPhoto2);
+});
+
 /////////// post front /////////
 document.querySelector(".valide").addEventListener("click", () => {
   loader.style.display = "flex"
@@ -265,6 +276,7 @@ document.querySelector(".valide").addEventListener("click", () => {
     ville: villeNaissance.value,
     description: p.innerHTML,
     photo: nomPhoto.value,
+    photo2: nomPhoto2.value,
     parentId1: parentId1.value,
     parentSo1: parentSo1.value,
     parentId2: parentId2.value,
