@@ -138,6 +138,8 @@ textarea {
     border-radius: 5px;
 }
 
+
+
 .valide,
 .sup,
 .edit {
@@ -262,8 +264,16 @@ textarea {
 
 .arbre{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     margin-bottom: 1%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.mini{
+    max-height: 15rem;
+    max-width: 27rem;
 }
 
 .bigLiens{

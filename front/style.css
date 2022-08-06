@@ -73,6 +73,10 @@ body {
     border-radius: 5px;
 }
 
+.sosa{
+    display: none;
+}
+
 .erase{
     border-radius: 5px;
     padding: 0 1% 0 1%;
@@ -221,10 +225,12 @@ body {
     margin-bottom: 1%;
     justify-content: center;
     align-items: center;
+    margin-top: 2%;
 }
 
 .mini{
     max-height: 15rem;
+    max-width: 27rem;
 }
 
 .mini:hover{

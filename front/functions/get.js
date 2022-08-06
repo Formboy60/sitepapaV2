@@ -173,7 +173,7 @@ function pagination(data, admin) {
 
   const searchBar = document.querySelector(".nom");
   const searchBar2 = document.querySelector(".prenom");
-  let searchBar3 = document.querySelector(".ville");
+  const searchBar3 = document.querySelector(".ville");
 
   /* Listening for a keyup event on the search bar. When a keyup event is detected, it takes the value of
   the search bar and makes it lowercase. Then it filters the data array and returns the data that
@@ -245,6 +245,19 @@ function pagination(data, admin) {
       display(filter, admin);
     }}
   });
+
+  document.querySelector('.sosa').addEventListener("keyup", () => {
+    let input = document.querySelector('.sosa').value
+    input = input.toLowerCase()
+    const filter = data.filter((hub) => {
+      return hub.id.toLowerCase().includes(input)
+    })
+    if (document.querySelector('.sosa').value == "") {
+      display(pagination[0], admin);
+    } else {
+      display(filter, admin);
+    }
+  })
 
   document.querySelector('.erase').addEventListener('click', () =>{
     document.querySelector('.nom').value = ""
