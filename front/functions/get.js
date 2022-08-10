@@ -280,6 +280,8 @@ document.querySelector("main").addEventListener("click", (e) => {
     document.querySelector(".fiches").style.display = "none";
     document.querySelector(".perso").style.display = "flex";
 
+    
+
     /* Fetching data from the server and then it is calling the `affiche` function. */
     fetch(
         `https://murmuring-peak-73024.herokuapp.com/projet/${e.target.parentNode.getAttribute("data-id")}`
@@ -368,6 +370,10 @@ document.querySelector("main").addEventListener("click", (e) => {
       if (document.querySelector('#parent2').textContent === " Mère : ") {
         document.querySelector('#parent2').style.display = 'none'
       }
+      if (document.querySelector('.mini').src == 'http://127.0.0.1:5501/front/back-office/gest/adminGest.html'){
+        document.querySelector('.arbre').style.display = 'none'
+      }
+      
 
       for(let i = 1 ; i<=15 ; i++){
         if (document.querySelector(`#enfant${[i]}`).textContent === ` Enfant ${[i]} : `) {
@@ -477,6 +483,7 @@ document.querySelector("main").addEventListener("click", (e) => {
           <p id="decriptionBig" contenteditable=${admin}>${perso[0].description}</p>
             <div class='arbre'>
               <img class='mini' src="${perso[0].photo2}" alt='arbre de ${perso[0].nom} ${perso[0].prenom}'/>
+              <p class='minihover'>Passez le pointeur pour agrandir l'image</p>
             </div>
         </div>
       </div>
@@ -516,9 +523,6 @@ document.querySelector("main").addEventListener("click", (e) => {
 })
 
 
-// document.querySelector('body').addEventListener("click", (e) => {
-//   if (e.target.tagName.toLowerCase() === 'span') {
-//     console.log(e.target.getAttribute('data-id'))
-//   }
-// })
+
+
 
