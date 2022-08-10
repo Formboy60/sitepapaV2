@@ -501,6 +501,9 @@ document.querySelector("main").addEventListener("click", (e) => {
       if (document.querySelector('#parent2').textContent === " Mère : ") {
         document.querySelector('#parent2').style.display = 'none'
       }
+      if (document.querySelector('.mini').src == 'http://127.0.0.1:5501/front/back-office/gest/adminGest.html'){
+        document.querySelector('.arbre').style.display = 'none'
+      }
 
       for(let i = 1 ; i<=15 ; i++){
         if (document.querySelector(`#enfant${[i]}`).textContent === ` Enfant ${[i]} : `) {
