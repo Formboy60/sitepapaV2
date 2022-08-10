@@ -370,7 +370,7 @@ document.querySelector("main").addEventListener("click", (e) => {
       if (document.querySelector('#parent2').textContent === " Mère : ") {
         document.querySelector('#parent2').style.display = 'none'
       }
-      if (document.querySelector('.mini').src == 'http://127.0.0.1:5501/front/back-office/gest/adminGest.html'){
+      if (document.querySelector('.mini').src == 'https://www.famille-guerin-rebuffat.com/back-office/gest/admingest'){
         document.querySelector('.arbre').style.display = 'none'
       }
       
@@ -501,7 +501,7 @@ document.querySelector("main").addEventListener("click", (e) => {
       if (document.querySelector('#parent2').textContent === " Mère : ") {
         document.querySelector('#parent2').style.display = 'none'
       }
-      if (document.querySelector('.mini').src == 'http://127.0.0.1:5501/front/back-office/gest/adminGest.html'){
+      if (document.querySelector('.mini').src == 'https://www.famille-guerin-rebuffat.com/back-office/gest/admingest'){
         document.querySelector('.arbre').style.display = 'none'
       }
 
