@@ -78,7 +78,7 @@ document.querySelector("main").addEventListener("click", (e) => {
  
   if (e.target.id === "sup2") {
     loader.style.display = "flex"
-    fetch(`https://murmuring-peak-73024.herokuapp.com/projet/${e.target.parentNode.parentNode.dataset.id}`, {
+    fetch(`https://repulsive-pocketbook-toad.cyclic.app/projet/${e.target.parentNode.parentNode.dataset.id}`, {
         method: "DELETE",
         headers: {
           Authorization: `${localStorage.getItem("token")}`,
@@ -209,7 +209,7 @@ for(let i=1; i<=3; i++){
     };
 
     fetch(
-        `https://murmuring-peak-73024.herokuapp.com/projet/${e.target.parentNode.parentNode.dataset.id}`,
+        `https://repulsive-pocketbook-toad.cyclic.app/projet/${e.target.parentNode.parentNode.dataset.id}`,
 
         {
           method: "PUT",
@@ -321,7 +321,7 @@ document.querySelector(".valide").addEventListener("click", () => {
 
 
 
-  fetch("https://murmuring-peak-73024.herokuapp.com/projet/arbres", {
+  fetch("https://repulsive-pocketbook-toad.cyclic.app/projet/arbres", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -353,3 +353,6 @@ document.querySelector(".valide").addEventListener("click", () => {
     });
 });
 
+document.querySelector('.erase').addEventListener('click', () =>{
+  document.querySelector('.sosa').value = ""
+})

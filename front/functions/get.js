@@ -5,7 +5,7 @@ let data = [];
  * @param admin - boolean
  */
 export function get(admin) {
-  fetch("https://murmuring-peak-73024.herokuapp.com/projet")
+  fetch("https://repulsive-pocketbook-toad.cyclic.app/projet")
     .then((response) => response.json())
     .then((res) => {
       data = res;
@@ -65,8 +65,7 @@ function pagination(data, admin) {
     }
     page.push(data[i]);
   }
-  console.log(data)
-  console.log(pagination)
+  
 
   //mettre 12 à la place de 2 au dessus
 
@@ -284,7 +283,7 @@ document.querySelector("main").addEventListener("click", (e) => {
 
     /* Fetching data from the server and then it is calling the `affiche` function. */
     fetch(
-        `https://murmuring-peak-73024.herokuapp.com/projet/${e.target.parentNode.getAttribute("data-id")}`
+        `https://repulsive-pocketbook-toad.cyclic.app/projet/${e.target.parentNode.getAttribute("data-id")}`
       )
       .then((response) => response.json())
       .then((res) => {
@@ -363,6 +362,9 @@ document.querySelector("main").addEventListener("click", (e) => {
                       </div>
                       <button class="retour">retour</button>
                     </div> `;
+       
+
+      console.log(document.querySelector(".mini").src);
 
       if (document.querySelector('#parent1').textContent === " Père : ") {
         document.querySelector('#parent1').style.display = 'none'
@@ -385,6 +387,10 @@ document.querySelector("main").addEventListener("click", (e) => {
         if (document.querySelector(`#conjoint${[i]}`).textContent === ` Conjoint ${[i]} : `) {
           document.querySelector(`#conjoint${[i]}`).style.display = 'none'
         }
+      }      
+   
+      if(document.querySelector('.mini').src == "https://www.famille-guerin-rebuffat.com/"){
+        document.querySelector('.arbre').style.display = 'none'
       }
 
     }
@@ -402,18 +408,18 @@ document.querySelector("main").addEventListener("click", (e) => {
   if (e.target.getAttribute("data-id") === "") {
     return
   } else if (e.target.className === "get" || e.target.tagName.toLowerCase() === 'span') {
-    console.log(e.target.getAttribute("data-id"))
+   
     document.querySelector(
       ".perso"
     ).innerHTML = ""
 
     fetch(
-        `https://murmuring-peak-73024.herokuapp.com/projet/parent/${e.target.getAttribute("data-id")}`
+        `https://repulsive-pocketbook-toad.cyclic.app/projet/parent/${e.target.getAttribute("data-id")}`
       )
       .then((response) => response.json())
       .then((res) => {
         perso = res;
-        console.log(res);
+      
         if (localStorage.getItem('token')) {
           return affiche(perso, true);
         }
@@ -495,6 +501,8 @@ document.querySelector("main").addEventListener("click", (e) => {
       <button class="retour">retour</button>
     </div> `;
 
+    
+
         if (document.querySelector('#parent1').textContent === " Père : ") {
         document.querySelector('#parent1').style.display = 'none'
       }
@@ -502,6 +510,10 @@ document.querySelector("main").addEventListener("click", (e) => {
         document.querySelector('#parent2').style.display = 'none'
       }
       if (document.querySelector('.mini').src == 'https://www.famille-guerin-rebuffat.com/back-office/gest/admingest'){
+        document.querySelector('.arbre').style.display = 'none'
+      }
+
+      if(document.querySelector('.mini').src == "https://www.famille-guerin-rebuffat.com/"){
         document.querySelector('.arbre').style.display = 'none'
       }
 
