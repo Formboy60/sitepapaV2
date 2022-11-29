@@ -389,7 +389,7 @@ document.querySelector("main").addEventListener("click", (e) => {
         }
       }      
    
-      if(document.querySelector('.mini').src == "https://www.famille-guerin-rebuffat.com/index.html"){
+      if(document.querySelector('.mini').src == "https://www.famille-guerin-rebuffat.com/"){
         document.querySelector('.arbre').style.display = 'none'
       }
 
@@ -513,7 +513,7 @@ document.querySelector("main").addEventListener("click", (e) => {
         document.querySelector('.arbre').style.display = 'none'
       }
 
-      if(document.querySelector('.mini').src == "https://www.famille-guerin-rebuffat.com/index.html"){
+      if(document.querySelector('.mini').src == "https://www.famille-guerin-rebuffat.com/"){
         document.querySelector('.arbre').style.display = 'none'
       }
 
