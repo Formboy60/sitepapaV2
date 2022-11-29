@@ -278,7 +278,7 @@ document.querySelector("main").addEventListener("click", (e) => {
 
     document.querySelector(".fiches").style.display = "none";
     document.querySelector(".perso").style.display = "flex";
-
+    document.querySelector('.pgn').style.display = 'none'
     
 
     /* Fetching data from the server and then it is calling the `affiche` function. */
@@ -365,7 +365,7 @@ document.querySelector("main").addEventListener("click", (e) => {
        
 
       console.log(document.querySelector(".mini").src);
-
+      
       if (document.querySelector('#parent1').textContent === " Père : ") {
         document.querySelector('#parent1').style.display = 'none'
       }
@@ -399,6 +399,7 @@ document.querySelector("main").addEventListener("click", (e) => {
   if (e.target.textContent == "retour") {
     document.querySelector(".fiches").style.display = "grid";
     document.querySelector(".perso").style.display = "none";
+    document.querySelector('.pgn').style.display = 'flex'
   }
 
 });

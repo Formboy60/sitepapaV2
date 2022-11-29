@@ -5,8 +5,3 @@ get()
 document.oncontextmenu = function() {
     return false;
   }
-
-
-
- 
-

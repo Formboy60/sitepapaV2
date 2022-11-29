@@ -14,9 +14,7 @@ a{
     color: white;
 }
 
-.a:hover{
-    color: rgba(111, 24, 111, 0.761);
-}
+
 
 /*/////// CSS header //////*/
 
@@ -186,6 +184,7 @@ body {
     font-weight: bolder;
     cursor: pointer;
     text-decoration: underline;
+    color: rgba(111, 24, 111, 0.761);
 }
 
 .haut {
