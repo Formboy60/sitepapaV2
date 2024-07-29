@@ -5,7 +5,7 @@ let data = [];
  * @param admin - boolean
  */
 export function get(admin) {
-  fetch("https://repulsive-pocketbook-toad.cyclic.app/projet")
+  fetch("https://sitepapav2.onrender.com/projet")
     .then((response) => response.json())
     .then((res) => {
       data = res;
